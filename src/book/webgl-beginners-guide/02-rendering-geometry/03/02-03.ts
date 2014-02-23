@@ -1,4 +1,4 @@
-import { getShader, initGL } from "../../00/00.js";
+import { getShader, initGL } from '../../00/00.js';
 
 initGL().then((gl: WebGLRenderingContext) => {
   const prg = initProgram(gl);
@@ -11,8 +11,8 @@ initGL().then((gl: WebGLRenderingContext) => {
  * @param gl
  */
 function initProgram(gl: WebGLRenderingContext): WebGLProgram {
-  let vertexShader = getShader(gl, "shader-vs");
-  let fragmentShader = getShader(gl, "shader-fs");
+  let vertexShader = getShader(gl, 'shader-vs');
+  let fragmentShader = getShader(gl, 'shader-fs');
 
   const prg: WebGLProgram | null = gl.createProgram();
 
@@ -22,15 +22,15 @@ function initProgram(gl: WebGLRenderingContext): WebGLProgram {
     gl.linkProgram(prg);
 
     if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
-      throw new Error("COULD NOT INITIALISE SHADERS");
+      throw new Error('COULD NOT INITIALISE SHADERS');
     }
 
     gl.useProgram(prg);
 
     // @ts-ignore
-    prg.aVertexPosition = gl.getAttribLocation(prg, "aVertexPosition");
+    prg.aVertexPosition = gl.getAttribLocation(prg, 'aVertexPosition');
   } else {
-    throw new Error("COULD NOT INITIALISE SHADERS");
+    throw new Error('COULD NOT INITIALISE SHADERS');
   }
 
   return prg as WebGLProgram;
@@ -53,7 +53,7 @@ function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, 
   /* 2. 使用 WebGLRenderingContextBase.createBuffer() 方法, 创建一个 buffer 对象 */
   const VBO = gl.createBuffer();
   if (!VBO) {
-    throw new Error("VBO IS NULL");
+    throw new Error('VBO IS NULL');
   }
   /* 3. 使用 WebGLRenderingContextBase.bindBuffer() 方法, 绑定 current buffer */
   gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
@@ -68,7 +68,7 @@ function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, 
   const indexArray = [...[3, 2, 1], ...[3, 1, 0]];
   const IBO = gl.createBuffer();
   if (!IBO) {
-    throw new Error("IBO IS NULL");
+    throw new Error('IBO IS NULL');
   }
 
   /*
@@ -91,13 +91,7 @@ function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, 
  * @param VBO
  * @param IBO
  */
-function render(
-  gl: WebGLRenderingContext,
-  prg: WebGLProgram,
-  indexArray: Array<number>,
-  VBO: WebGLBuffer,
-  IBO: WebGLBuffer,
-) {
+function render(gl: WebGLRenderingContext, prg: WebGLProgram, indexArray: Array<number>, VBO: WebGLBuffer, IBO: WebGLBuffer) {
   // @ts-ignore
   window.requestAnimationFrame(render.bind(this, gl, prg, indexArray, VBO, IBO));
   drawScene(gl, prg, indexArray, VBO, IBO);
@@ -111,13 +105,7 @@ function render(
  * @param VBO
  * @param IBO
  */
-function drawScene(
-  gl: WebGLRenderingContext,
-  prg: WebGLProgram,
-  indexArray: Array<number>,
-  VBO: WebGLBuffer,
-  IBO: WebGLBuffer,
-) {
+function drawScene(gl: WebGLRenderingContext, prg: WebGLProgram, indexArray: Array<number>, VBO: WebGLBuffer, IBO: WebGLBuffer) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
   gl.enable(gl.DEPTH_TEST);
 

@@ -1,22 +1,26 @@
 {
-  "name": "learning-webgl",
+  "name": "@luotao/learning-webgl",
   "version": "0.0.1",
   "description": "learning-webgl",
   "private": true,
-  "author": "luotao",
   "scripts": {
     "tsc": "tsc",
     "tsc:watch": "tsc --watch",
     "json-server": "ts-node json-server"
   },
   "devDependencies": {
-    "@types/json-server": "^0.14.0",
-    "chalk": "^2.4.2",
-    "husky": "^3.0.0",
+    "@types/json-server": "^0.14.4",
+    "chalk": "^4.1.2",
     "json-server": "^0.15.0",
-    "lint-staged": "^9.1.0",
-    "prettier": "^1.18.2",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.2"
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  },
+  "prettier": {
+    "printWidth": 160,
+    "singleQuote": true,
+    "semi": true,
+    "endOfLine": "auto",
+    "trailingComma": "all"
   }
 }

@@ -1,4 +1,4 @@
-import { getShader, initGL, requestJSON } from "../../00/00.js";
+import { getShader, initGL, requestJSON } from '../../00/00.js';
 
 declare const mat4: any;
 
@@ -23,8 +23,8 @@ initGL().then((gl: WebGLRenderingContext) => {
  * @param gl
  */
 function initProgram(gl: WebGLRenderingContext): void {
-  let vertexShader = getShader(gl, "shader-vs");
-  let fragmentShader = getShader(gl, "shader-fs");
+  let vertexShader = getShader(gl, 'shader-vs');
+  let fragmentShader = getShader(gl, 'shader-fs');
 
   prg = gl.createProgram();
 
@@ -34,21 +34,21 @@ function initProgram(gl: WebGLRenderingContext): void {
     gl.linkProgram(prg);
 
     if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
-      throw new Error("COULD NOT INITIALISE SHADERS");
+      throw new Error('COULD NOT INITIALISE SHADERS');
     }
 
     gl.useProgram(prg);
 
     // @ts-ignore
-    prg.aVertexPosition = gl.getAttribLocation(prg, "aVertexPosition");
+    prg.aVertexPosition = gl.getAttribLocation(prg, 'aVertexPosition');
     // @ts-ignore
-    prg.pMatrixUniform = gl.getUniformLocation(prg, "uPMatrix");
+    prg.pMatrixUniform = gl.getUniformLocation(prg, 'uPMatrix');
     // @ts-ignore
-    prg.mvMatrixUniform = gl.getUniformLocation(prg, "uMVMatrix");
+    prg.mvMatrixUniform = gl.getUniformLocation(prg, 'uMVMatrix');
     // @ts-ignore
-    prg.modelColor = gl.getUniformLocation(prg, "modelColor");
+    prg.modelColor = gl.getUniformLocation(prg, 'modelColor');
   } else {
-    throw new Error("COULD NOT INITIALISE SHADERS");
+    throw new Error('COULD NOT INITIALISE SHADERS');
   }
 }
 
@@ -61,14 +61,14 @@ function initBuffers(gl: WebGLRenderingContext): Promise<void> {
     initModel().then(() => {
       VBO = gl.createBuffer();
       if (!VBO) {
-        throw new Error("VBO IS NULL");
+        throw new Error('VBO IS NULL');
       }
       gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexArray), gl.STATIC_DRAW);
 
       IBO = gl.createBuffer();
       if (!IBO) {
-        throw new Error("IBO IS NULL");
+        throw new Error('IBO IS NULL');
       }
 
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, IBO);
@@ -126,8 +126,8 @@ function drawScene(gl: WebGLRenderingContext) {
 
 function initModel(): Promise<void> {
   return new Promise<void>((resolve, reject) => {
-    requestJSON("http://localhost:3003/api/doc/book/webgl-beginners-guide/02-07").then((data: object) => {
-      model = data as (typeof model);
+    requestJSON('http://localhost:3003/api/doc/book/webgl-beginners-guide/02-07').then((data: object) => {
+      model = data as typeof model;
       vertexArray = model.vertices;
       indexArray = model.indices;
       resolve();

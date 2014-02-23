@@ -1,4 +1,4 @@
-import { getShader, initGL } from "../../00/00.js";
+import { getShader, initGL } from '../../00/00.js';
 
 declare const mat4: any;
 
@@ -21,8 +21,8 @@ initGL().then((gl: WebGLRenderingContext) => {
  * @param gl
  */
 function initProgram(gl: WebGLRenderingContext): void {
-  let vertexShader = getShader(gl, "shader-vs");
-  let fragmentShader = getShader(gl, "shader-fs");
+  let vertexShader = getShader(gl, 'shader-vs');
+  let fragmentShader = getShader(gl, 'shader-fs');
 
   prg = gl.createProgram();
 
@@ -32,19 +32,19 @@ function initProgram(gl: WebGLRenderingContext): void {
     gl.linkProgram(prg);
 
     if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
-      throw new Error("COULD NOT INITIALISE SHADERS");
+      throw new Error('COULD NOT INITIALISE SHADERS');
     }
 
     gl.useProgram(prg);
 
     // @ts-ignore
-    prg.aVertexPosition = gl.getAttribLocation(prg, "aVertexPosition");
+    prg.aVertexPosition = gl.getAttribLocation(prg, 'aVertexPosition');
     // @ts-ignore
-    prg.pMatrixUniform = gl.getUniformLocation(prg, "uPMatrix");
+    prg.pMatrixUniform = gl.getUniformLocation(prg, 'uPMatrix');
     // @ts-ignore
-    prg.mvMatrixUniform = gl.getUniformLocation(prg, "uMVMatrix");
+    prg.mvMatrixUniform = gl.getUniformLocation(prg, 'uMVMatrix');
   } else {
-    throw new Error("COULD NOT INITIALISE SHADERS");
+    throw new Error('COULD NOT INITIALISE SHADERS');
   }
 }
 
@@ -54,44 +54,13 @@ function initProgram(gl: WebGLRenderingContext): void {
  */
 function initBuffers(gl: WebGLRenderingContext): void {
   vertexArray = [
-    1.5,
-    0,
-    0,
-    -1.5,
-    1,
-    0,
-    -1.5,
-    0.809017,
-    0.587785,
-    -1.5,
-    0.309017,
-    0.951057,
-    -1.5,
-    -0.309017,
-    0.951057,
-    -1.5,
-    -0.809017,
-    0.587785,
-    -1.5,
-    -1,
-    -4.10207e-10,
-    -1.5,
-    -0.809017,
-    -0.587785,
-    -1.5,
-    -0.309017,
-    -0.951057,
-    -1.5,
-    0.309017,
-    -0.951057,
-    -1.5,
-    0.809017,
-    -0.587785,
+    1.5, 0, 0, -1.5, 1, 0, -1.5, 0.809017, 0.587785, -1.5, 0.309017, 0.951057, -1.5, -0.309017, 0.951057, -1.5, -0.809017, 0.587785, -1.5, -1, -4.10207e-10,
+    -1.5, -0.809017, -0.587785, -1.5, -0.309017, -0.951057, -1.5, 0.309017, -0.951057, -1.5, 0.809017, -0.587785,
   ];
 
   VBO = gl.createBuffer();
   if (!VBO) {
-    throw new Error("VBO IS NULL");
+    throw new Error('VBO IS NULL');
   }
   gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexArray), gl.STATIC_DRAW);
@@ -99,7 +68,7 @@ function initBuffers(gl: WebGLRenderingContext): void {
   indexArray = [0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, 0, 5, 6, 0, 6, 7, 0, 7, 8, 0, 8, 9, 0, 9, 10, 0, 10, 1];
   IBO = gl.createBuffer();
   if (!IBO) {
-    throw new Error("IBO IS NULL");
+    throw new Error('IBO IS NULL');
   }
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, IBO);
@@ -110,7 +79,7 @@ function initBuffers(gl: WebGLRenderingContext): void {
    */
   const currentVBO = gl.getParameter(gl.ARRAY_BUFFER_BINDING);
   console.assert(currentVBO === VBO);
-  console.log("gl.getParameter(gl.ARRAY_BUFFER_BINDING)\n", currentVBO);
+  console.log('gl.getParameter(gl.ARRAY_BUFFER_BINDING)\n', currentVBO);
 
   /*
    * 使用 WebGLRenderingContextBase.getBufferParameter() 方法, 获取当前的 VBO/IBO 的信息,
@@ -119,17 +88,17 @@ function initBuffers(gl: WebGLRenderingContext): void {
    * 其中 BUFFER_USAGE 表示使用方式, 可能的值为 gl.STATIC_DRAW/gl.DYNAMIC_DRAW/gl.STREAM_DRAW
    */
   const vboSize = gl.getBufferParameter(gl.ARRAY_BUFFER, gl.BUFFER_SIZE);
-  console.log("gl.getBufferParameter(gl.ARRAY_BUFFER, gl.BUFFER_SIZE)\n", vboSize);
+  console.log('gl.getBufferParameter(gl.ARRAY_BUFFER, gl.BUFFER_SIZE)\n', vboSize);
 
   /*
    * 使用 gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING) 获取当前绑定的 IBO
    */
   const currentIBO = gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING);
   console.assert(currentIBO === IBO);
-  console.log("gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING)\n", currentIBO);
+  console.log('gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING)\n', currentIBO);
 
   const iboUsage = gl.getBufferParameter(gl.ELEMENT_ARRAY_BUFFER, gl.BUFFER_USAGE);
-  console.log("gl.getBufferParameter(gl.ELEMENT_ARRAY_BUFFER, gl.BUFFER_USAGE)\n", iboUsage);
+  console.log('gl.getBufferParameter(gl.ELEMENT_ARRAY_BUFFER, gl.BUFFER_USAGE)\n', iboUsage);
 
   /*
    * 使用 WebGLRenderingContextBase.isBuffer() 方法, 判断某个对象是否是一个 WebGLBuffer 对象

@@ -3,17 +3,17 @@
  */
 function initGL(): Promise<WebGLRenderingContext> {
   return new Promise<WebGLRenderingContext>((resolve, reject) => {
-    window.addEventListener("load", function() {
-      const canvasEl = document.querySelector<HTMLCanvasElement>("#canvas01");
+    window.addEventListener('load', function () {
+      const canvasEl = document.querySelector<HTMLCanvasElement>('#canvas01');
       if (canvasEl) {
-        const gl = canvasEl.getContext("webgl");
+        const gl = canvasEl.getContext('webgl');
         if (gl) {
           resolve(gl);
         } else {
-          reject(new Error("WEBGL NOT SUPPORTED"));
+          reject(new Error('WEBGL NOT SUPPORTED'));
         }
       } else {
-        reject(new Error("CANVAS NOT EXIST"));
+        reject(new Error('CANVAS NOT EXIST'));
       }
     });
   });
@@ -30,7 +30,7 @@ function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
     return null;
   }
 
-  let str = "";
+  let str = '';
   let k = script.firstChild;
   while (k) {
     if (k.nodeType == 3) {
@@ -40,9 +40,9 @@ function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
   }
 
   let shader: WebGLShader | null;
-  if (script.type == "x-shader/x-fragment") {
+  if (script.type == 'x-shader/x-fragment') {
     shader = gl.createShader(gl.FRAGMENT_SHADER);
-  } else if (script.type == "x-shader/x-vertex") {
+  } else if (script.type == 'x-shader/x-vertex') {
     shader = gl.createShader(gl.VERTEX_SHADER);
   } else {
     return null;
@@ -53,7 +53,7 @@ function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
     gl.compileShader(shader);
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-      throw new Error(gl.getShaderInfoLog(shader) || "");
+      throw new Error(gl.getShaderInfoLog(shader) || '');
     }
   }
 
@@ -67,7 +67,7 @@ function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
 function requestJSON(url: string): Promise<object> {
   return new Promise<object>((resolve, reject) => {
     const xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.open("GET", url);
+    xmlHttpRequest.open('GET', url);
     xmlHttpRequest.onreadystatechange = () => {
       if (xmlHttpRequest.readyState === 4) {
         if (xmlHttpRequest.status === 200) {

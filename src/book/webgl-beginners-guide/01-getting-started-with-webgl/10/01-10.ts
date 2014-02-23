@@ -1,4 +1,4 @@
-import { initGL } from "../../00/00.js";
+import { initGL } from '../../00/00.js';
 
 initGL().then((gl: WebGLRenderingContext) => {
   /*

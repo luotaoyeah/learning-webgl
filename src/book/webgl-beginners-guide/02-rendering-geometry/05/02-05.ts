@@ -1,11 +1,11 @@
-import { getShader, initGL } from "../../00/00.js";
+import { getShader, initGL } from '../../00/00.js';
 
-let mode = "TRIANGLES";
+let mode = 'TRIANGLES';
 
 initGL().then((gl: WebGLRenderingContext) => {
-  const selectEl = document.querySelector<HTMLSelectElement>("#select01");
+  const selectEl = document.querySelector<HTMLSelectElement>('#select01');
   if (selectEl) {
-    selectEl.addEventListener("change", (event: Event) => {
+    selectEl.addEventListener('change', (event: Event) => {
       mode = (event.target as HTMLSelectElement).value;
     });
   }
@@ -20,8 +20,8 @@ initGL().then((gl: WebGLRenderingContext) => {
  * @param gl
  */
 function initProgram(gl: WebGLRenderingContext): WebGLProgram {
-  let vertexShader = getShader(gl, "shader-vs");
-  let fragmentShader = getShader(gl, "shader-fs");
+  let vertexShader = getShader(gl, 'shader-vs');
+  let fragmentShader = getShader(gl, 'shader-fs');
 
   const prg: WebGLProgram | null = gl.createProgram();
 
@@ -31,15 +31,15 @@ function initProgram(gl: WebGLRenderingContext): WebGLProgram {
     gl.linkProgram(prg);
 
     if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
-      throw new Error("COULD NOT INITIALISE SHADERS");
+      throw new Error('COULD NOT INITIALISE SHADERS');
     }
 
     gl.useProgram(prg);
 
     // @ts-ignore
-    prg.aVertexPosition = gl.getAttribLocation(prg, "aVertexPosition");
+    prg.aVertexPosition = gl.getAttribLocation(prg, 'aVertexPosition');
   } else {
-    throw new Error("COULD NOT INITIALISE SHADERS");
+    throw new Error('COULD NOT INITIALISE SHADERS');
   }
 
   return prg as WebGLProgram;
@@ -50,17 +50,11 @@ function initProgram(gl: WebGLRenderingContext): WebGLProgram {
  * @param gl
  */
 function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, WebGLBuffer, WebGLBuffer] {
-  const vertexArray = [
-    ...[-0.5, -0.5, 0.0],
-    ...[-0.25, 0.5, 0.0],
-    ...[0.0, -0.5, 0.0],
-    ...[0.25, 0.5, 0.0],
-    ...[0.5, -0.5, 0.0],
-  ];
+  const vertexArray = [...[-0.5, -0.5, 0.0], ...[-0.25, 0.5, 0.0], ...[0.0, -0.5, 0.0], ...[0.25, 0.5, 0.0], ...[0.5, -0.5, 0.0]];
 
   const VBO = gl.createBuffer();
   if (!VBO) {
-    throw new Error("VBO IS NULL");
+    throw new Error('VBO IS NULL');
   }
   gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexArray), gl.STATIC_DRAW);
@@ -69,7 +63,7 @@ function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, 
   const indexArray = [0, 1, 2, 0, 2, 3, 2, 3, 4];
   const IBO = gl.createBuffer();
   if (!IBO) {
-    throw new Error("IBO IS NULL");
+    throw new Error('IBO IS NULL');
   }
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, IBO);
@@ -87,13 +81,7 @@ function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, 
  * @param VBO
  * @param IBO
  */
-function render(
-  gl: WebGLRenderingContext,
-  prg: WebGLProgram,
-  indexArray: Array<number>,
-  VBO: WebGLBuffer,
-  IBO: WebGLBuffer,
-) {
+function render(gl: WebGLRenderingContext, prg: WebGLProgram, indexArray: Array<number>, VBO: WebGLBuffer, IBO: WebGLBuffer) {
   // @ts-ignore
   window.requestAnimationFrame(render.bind(this, gl, prg, indexArray, VBO, IBO));
   drawScene(gl, prg, indexArray, VBO, IBO);
@@ -107,13 +95,7 @@ function render(
  * @param VBO
  * @param IBO
  */
-function drawScene(
-  gl: WebGLRenderingContext,
-  prg: WebGLProgram,
-  indexArray: Array<number>,
-  VBO: WebGLBuffer,
-  IBO: WebGLBuffer,
-) {
+function drawScene(gl: WebGLRenderingContext, prg: WebGLProgram, indexArray: Array<number>, VBO: WebGLBuffer, IBO: WebGLBuffer) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
   gl.enable(gl.DEPTH_TEST);
 
@@ -137,7 +119,7 @@ function drawScene(
      * WebGLRenderingContextBase.TRIANGLES
      * 每 3 个点为一组, 每一组是一个三角形
      */
-    case "TRIANGLES": {
+    case 'TRIANGLES': {
       indexArray = [...[0, 1, 2], ...[2, 3, 4]];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.TRIANGLES, indexArray.length, gl.UNSIGNED_SHORT, 0);
@@ -147,7 +129,7 @@ function drawScene(
      * WebGLRenderingContextBase.LINES
      * 每 2 个点为一组, 每一组是一条线
      */
-    case "LINES": {
+    case 'LINES': {
       indexArray = [...[1, 3], ...[0, 4], ...[1, 2], ...[2, 3]];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.LINES, indexArray.length, gl.UNSIGNED_SHORT, 0);
@@ -157,7 +139,7 @@ function drawScene(
      * WebGLRenderingContextBase.POINTS
      * 每 1 个点为一组, 每一组为一个点
      */
-    case "POINTS": {
+    case 'POINTS': {
       indexArray = [1, 2, 3];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.POINTS, indexArray.length, gl.UNSIGNED_SHORT, 0);
@@ -167,7 +149,7 @@ function drawScene(
      * WebGLRenderingContextBase.LINE_LOOP
      * 每 1 个点为一组, 所有的点依次连接, 成为一个闭环
      */
-    case "LINE_LOOP": {
+    case 'LINE_LOOP': {
       indexArray = [2, 3, 4, 1, 0];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.LINE_LOOP, indexArray.length, gl.UNSIGNED_SHORT, 0);
@@ -177,7 +159,7 @@ function drawScene(
      * WebGLRenderingContextBase.LINE_STRIP
      * 跟 WebGLRenderingContextBase.LINE_LOOP 类似, 区别在于不会成为闭环, 即最后一个点不会连接第一个点
      */
-    case "LINE_STRIP": {
+    case 'LINE_STRIP': {
       indexArray = [2, 3, 4, 1, 0];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.LINE_STRIP, indexArray.length, gl.UNSIGNED_SHORT, 0);
@@ -189,7 +171,7 @@ function drawScene(
      * 跟 WebGLRenderingContextBase.TRIANGLES 的区别在于, 分组形式不一样,
      * 如下的 [0, 1, 2, 3, 4] 会分组为 (0,1,2), (1,2,3), (2,3,4) 共 3 组
      */
-    case "TRIANGLE_STRIP": {
+    case 'TRIANGLE_STRIP': {
       indexArray = [0, 1, 2, 3, 4];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.TRIANGLE_STRIP, indexArray.length, gl.UNSIGNED_SHORT, 0);
@@ -201,7 +183,7 @@ function drawScene(
      * 跟 WebGLRenderingContextBase.TRIANGLE_STRIP 的区别在于, 分组形式不一样,
      * 如下的 [0, 1, 2, 3, 4] 会分组为 (0,1,2), (0,3,4) 共 2 组
      */
-    case "TRIANGLE_FAN": {
+    case 'TRIANGLE_FAN': {
       indexArray = [0, 1, 2, 3, 4];
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
       gl.drawElements(gl.TRIANGLE_FAN, indexArray.length, gl.UNSIGNED_SHORT, 0);
