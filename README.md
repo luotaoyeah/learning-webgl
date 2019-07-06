@@ -1,2 +1,1 @@
 # learning-webgl
-Learning WebGL

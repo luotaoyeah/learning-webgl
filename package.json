@@ -1,0 +1,14 @@
+{
+  "name": "learning-webgl",
+  "version": "0.0.1",
+  "description": "learning-webgl",
+  "private": true,
+  "author": "luotao",
+  "scripts": {},
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.1.0",
+    "prettier": "^1.18.2"
+  }
+}
