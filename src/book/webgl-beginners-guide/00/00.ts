@@ -1,7 +1,7 @@
 /**
  * init WebGL context
  */
-export function init(): Promise<WebGLRenderingContext> {
+function init(): Promise<WebGLRenderingContext> {
   return new Promise<WebGLRenderingContext>((resolve, reject) => {
     window.addEventListener("load", function() {
       const canvasEl = document.querySelector<HTMLCanvasElement>("#canvas01");
@@ -18,3 +18,5 @@ export function init(): Promise<WebGLRenderingContext> {
     });
   });
 }
+
+export { init };
