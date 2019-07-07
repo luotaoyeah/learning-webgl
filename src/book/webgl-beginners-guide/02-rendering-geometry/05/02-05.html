@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>02-05</title>
+  </head>
+  <body>
+    <h2>2.5. Rendering Modes</h2>
+
+    <script id="shader-fs" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision highp float;
+      #endif
+      void main(void) {
+        gl_FragColor = vec4(0.5, 0.5, 1.0, 1.0);
+      }
+    </script>
+
+    <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+
+      void main(void) {
+        gl_Position = vec4(aVertexPosition, 1.0);
+        gl_PointSize = 4.0;
+      }
+    </script>
+
+    <div style="text-align: center">
+      <canvas id="canvas01" width="1280" height="720">
+        your browser does not support canvas
+      </canvas>
+      <select
+        id="select01"
+        style="
+        border: 1px solid #ddd;
+        height: 32px;
+        border-radius: 3px;
+        line-height: 32px;
+        padding: 0 6px;
+      "
+      >
+        <option value="TRIANGLES" selected>TRIANGLES</option>
+        <option value="LINES">LINES</option>
+        <option value="POINTS">POINTS</option>
+        <option value="LINE_LOOP">LINE_LOOP</option>
+        <option value="LINE_STRIP">LINE_STRIP</option>
+        <option value="TRIANGLE_STRIP">TRIANGLE_STRIP</option>
+        <option value="TRIANGLE_FAN">TRIANGLE_FAN</option>
+      </select>
+    </div>
+
+    <script src="./02-05.js" type="module"></script>
+  </body>
+</html>

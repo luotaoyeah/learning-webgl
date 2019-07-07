@@ -53,8 +53,7 @@ function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
     gl.compileShader(shader);
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-      alert(gl.getShaderInfoLog(shader));
-      return null;
+      throw new Error(gl.getShaderInfoLog(shader) || "");
     }
   }
 

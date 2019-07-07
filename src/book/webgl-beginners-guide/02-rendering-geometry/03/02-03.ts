@@ -1,9 +1,9 @@
 import { getShader, initGL } from "../../00/00.js";
 
 initGL().then((gl: WebGLRenderingContext) => {
-  const program = initProgram(gl);
+  const prg = initProgram(gl);
   const [, indexArray, VBO, IBO] = initBuffers(gl);
-  render(gl, program, indexArray, VBO, IBO);
+  render(gl, prg, indexArray, VBO, IBO);
 });
 
 /**
@@ -14,26 +14,26 @@ function initProgram(gl: WebGLRenderingContext): WebGLProgram {
   let vertexShader = getShader(gl, "shader-vs");
   let fragmentShader = getShader(gl, "shader-fs");
 
-  const program: WebGLProgram | null = gl.createProgram();
+  const prg: WebGLProgram | null = gl.createProgram();
 
-  if (program && fragmentShader && vertexShader) {
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
+  if (prg && fragmentShader && vertexShader) {
+    gl.attachShader(prg, vertexShader);
+    gl.attachShader(prg, fragmentShader);
+    gl.linkProgram(prg);
 
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    if (!gl.getProgramParameter(prg, gl.LINK_STATUS)) {
       throw new Error("COULD NOT INITIALISE SHADERS");
     }
 
-    gl.useProgram(program);
+    gl.useProgram(prg);
 
     // @ts-ignore
-    program.aVertexPosition = gl.getAttribLocation(program, "aVertexPosition");
+    prg.aVertexPosition = gl.getAttribLocation(prg, "aVertexPosition");
   } else {
     throw new Error("COULD NOT INITIALISE SHADERS");
   }
 
-  return program as WebGLProgram;
+  return prg as WebGLProgram;
 }
 
 /**
@@ -86,34 +86,34 @@ function initBuffers(gl: WebGLRenderingContext): [Array<number>, Array<number>, 
 /**
  *
  * @param gl
- * @param program
+ * @param prg
  * @param indexArray
  * @param VBO
  * @param IBO
  */
 function render(
   gl: WebGLRenderingContext,
-  program: WebGLProgram,
+  prg: WebGLProgram,
   indexArray: Array<number>,
   VBO: WebGLBuffer,
   IBO: WebGLBuffer,
 ) {
   // @ts-ignore
-  window.requestAnimationFrame(render.bind(this, gl, program, indexArray, VBO, IBO));
-  drawScene(gl, program, indexArray, VBO, IBO);
+  window.requestAnimationFrame(render.bind(this, gl, prg, indexArray, VBO, IBO));
+  drawScene(gl, prg, indexArray, VBO, IBO);
 }
 
 /**
  *
  * @param gl
- * @param program
+ * @param prg
  * @param indexArray
  * @param VBO
  * @param IBO
  */
 function drawScene(
   gl: WebGLRenderingContext,
-  program: WebGLProgram,
+  prg: WebGLProgram,
   indexArray: Array<number>,
   VBO: WebGLBuffer,
   IBO: WebGLBuffer,
@@ -126,9 +126,9 @@ function drawScene(
 
   gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
   // @ts-ignore
-  gl.vertexAttribPointer(program.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(prg.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
   // @ts-ignore
-  gl.enableVertexAttribArray(program.vertexPosition);
+  gl.enableVertexAttribArray(prg.vertexPosition);
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, IBO);
   gl.drawElements(gl.TRIANGLES, indexArray.length, gl.UNSIGNED_SHORT, 0);
