@@ -1,6 +1,8 @@
-import { init } from "../../00/00.js";
+import { getShader, initGL } from "../../00/00.js";
 
-init().then((gl: WebGLRenderingContext) => {
+initGL().then((gl: WebGLRenderingContext) => {
+  initProgram(gl);
+
   /*
    * 构造 VBO/IBO 的步骤如下:
    *
@@ -8,22 +10,22 @@ init().then((gl: WebGLRenderingContext) => {
    */
   const vertexArray = getVertexArray();
   /* 2. 使用 WebGLRenderingContextBase.createBuffer() 方法, 创建一个 buffer 对象 */
-  const vertexBuffer = gl.createBuffer();
+  const VBO = gl.createBuffer();
   /* 3. 使用 WebGLRenderingContextBase.bindBuffer() 方法, 绑定 current buffer */
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+  gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
   /* 4. 使用 WebGLRenderingContextBase.bufferData() 方法, 设置 buffer 数据 */
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexArray), gl.STATIC_DRAW);
   /* 5. 使用 WebGLRenderingContextBase.bindBuffer() 方法, 解绑 current buffer, 传递的参数为 null */
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
 
   const indexArray = getIndexArray();
-  const indexBuffer = gl.createBuffer();
+  const IBO = gl.createBuffer();
   /*
    * 对于 WebGLRenderingContextBase.bindBuffer() 和 WebGLRenderingContextBase.bufferData() 方法,
    * 对于 vertex 来说, 第一个参数为 WebGLRenderingContextBase.ARRAY_BUFFER
    * 对于 index 来说, 第一个参数为 WebGLRenderingContextBase.ELEMENT_ARRAY_BUFFER
    */
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, IBO);
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexArray), gl.STATIC_DRAW);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 });
@@ -63,4 +65,26 @@ function getIndexArray(): Array<number> {
     ...[0, 9, 10],
     ...[0, 10, 1],
   ];
+}
+
+function initProgram(gl: WebGLRenderingContext) {
+  let vertexShader = getShader(gl, "shader-vs");
+  let fragmentShader = getShader(gl, "shader-fs");
+
+  const program: WebGLProgram | null = gl.createProgram();
+
+  if (program && fragmentShader && vertexShader) {
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      throw new Error("COULD NOT INITIALISE SHADERS");
+    }
+
+    gl.useProgram(program);
+
+    // @ts-ignore
+    program.aVertexPosition = gl.getAttribLocation(program, "aVertexPosition");
+  }
 }

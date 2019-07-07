@@ -1,7 +1,7 @@
 /**
  * init WebGL context
  */
-function init(): Promise<WebGLRenderingContext> {
+function initGL(): Promise<WebGLRenderingContext> {
   return new Promise<WebGLRenderingContext>((resolve, reject) => {
     window.addEventListener("load", function() {
       const canvasEl = document.querySelector<HTMLCanvasElement>("#canvas01");
@@ -19,4 +19,46 @@ function init(): Promise<WebGLRenderingContext> {
   });
 }
 
-export { init };
+/**
+ * get WebGLShader
+ * @param gl
+ * @param id
+ */
+function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
+  const script = document.querySelector<HTMLScriptElement>(`#${id}`);
+  if (!script) {
+    return null;
+  }
+
+  let str = "";
+  let k = script.firstChild;
+  while (k) {
+    if (k.nodeType == 3) {
+      str += k.textContent;
+    }
+    k = k.nextSibling;
+  }
+
+  let shader: WebGLShader | null;
+  if (script.type == "x-shader/x-fragment") {
+    shader = gl.createShader(gl.FRAGMENT_SHADER);
+  } else if (script.type == "x-shader/x-vertex") {
+    shader = gl.createShader(gl.VERTEX_SHADER);
+  } else {
+    return null;
+  }
+
+  if (shader) {
+    gl.shaderSource(shader, str);
+    gl.compileShader(shader);
+
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      alert(gl.getShaderInfoLog(shader));
+      return null;
+    }
+  }
+
+  return shader;
+}
+
+export { initGL, getShader };

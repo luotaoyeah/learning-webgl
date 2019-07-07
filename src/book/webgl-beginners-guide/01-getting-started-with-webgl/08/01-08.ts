@@ -1,6 +1,6 @@
-import { init } from "../../00/00.js";
+import { initGL } from "../../00/00.js";
 
-init().then((gl: WebGLRenderingContext) => {
+initGL().then((gl: WebGLRenderingContext) => {
   /*
    * WebGL 是一个状态机(state machine), 什么意思呢?
    * 就是说, context 对象上有很多表示状态的属性, 这些属性可以被赋值和取值,
