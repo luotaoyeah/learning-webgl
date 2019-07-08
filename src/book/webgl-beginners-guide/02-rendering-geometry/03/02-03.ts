@@ -124,11 +124,25 @@ function drawScene(
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   gl.viewport(0, 0, 1280, 720);
 
+  /*
+   * vertex shader 上面有很多的 attribute, 每一个 attribute 都需要指向一个 VBO, 操作步骤如下:
+   */
+  /* 1. 绑定 current VBO */
   gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
+  /*
+   *  2. 使用 WebGLRenderingContextBase.vertexAttribPointer() 方法, 将某个 attribute 只想 current VBO
+   *     其中,
+   *       第一个参数表示, 要设置哪一个 attribute
+   *       第二个参数表示, 这个 VBO 中每一组数据包含几个值
+   *       第三个参数表示, 这个 VBO 中的元素的类型
+   */
   // @ts-ignore
   gl.vertexAttribPointer(prg.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
+  /*
+   * 3. 使用 WebGLRenderingContextBase.enableVertexAttribArray() 方法, 其中这个 attribute
+   */
   // @ts-ignore
-  gl.enableVertexAttribArray(prg.vertexPosition);
+  gl.enableVertexAttribArray(prg.aVertexPosition);
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, IBO);
   gl.drawElements(gl.TRIANGLES, indexArray.length, gl.UNSIGNED_SHORT, 0);
