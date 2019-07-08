@@ -9,3 +9,5 @@ yarn-error.log*
 
 /src/book/webgl-beginners-guide/**/*.js
 /src/book/webgl-beginners-guide/**/*.js.map
+/json-server/**/*.js
+/json-server/**/*.js.map
