@@ -60,4 +60,24 @@ function getShader(gl: WebGLRenderingContext, id: string): WebGLShader | null {
   return shader;
 }
 
-export { initGL, getShader };
+/**
+ * get json data
+ * @param url URL
+ */
+function requestJSON(url: string): Promise<object> {
+  return new Promise<object>((resolve, reject) => {
+    const xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.open("GET", url);
+    xmlHttpRequest.onreadystatechange = () => {
+      if (xmlHttpRequest.readyState === 4) {
+        if (xmlHttpRequest.status === 200) {
+          resolve(JSON.parse(xmlHttpRequest.responseText));
+        }
+      }
+    };
+
+    xmlHttpRequest.send();
+  });
+}
+
+export { initGL, getShader, requestJSON };
