@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>02-06</title>
+  </head>
+  <body>
+    <h2>2.6. WebGL As A State Machine: Buffer Manipulation</h2>
+
+    <script id="shader-fs" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision highp float;
+      #endif
+
+      void main(void) {
+          gl_FragColor = vec4(0.5, 0.9, 0.2, 1.0);
+      }
+    </script>
+
+    <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+
+      void main(void) {
+          gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+          gl_PointSize = 3.0;
+      }
+    </script>
+
+    <div style="text-align: center">
+      <canvas id="canvas01" width="1280" height="720">
+        your browser does not support canvas
+      </canvas>
+    </div>
+
+    <script src="../../../webgl-beginners-guide-code/1727_02/js/gl-matrix-min.js"></script>
+    <script src="./02-06.js" type="module"></script>
+  </body>
+</html>
