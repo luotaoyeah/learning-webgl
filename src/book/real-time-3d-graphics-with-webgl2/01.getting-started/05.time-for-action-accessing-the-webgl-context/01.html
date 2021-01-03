@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01.05</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <canvas height="600" id="canvas01" style="width: 1000px; height: 600px; border: 1px solid #000" width="1000"></canvas>
+    </div>
+
+    <script>
+      window.addEventListener(
+        'load',
+        function () {
+          const dpr = window.devicePixelRatio || 1;
+          /** @type {HTMLCanvasElement} */
+          const canvas = document.getElementById('canvas01');
+          const gl = canvas.getContext('webgl2');
+          const rect = canvas.getBoundingClientRect();
+          canvas.width = rect.width * dpr;
+          canvas.height = rect.height * dpr;
+          const width = canvas.width / dpr;
+          const height = canvas.height / dpr;
+
+          draw(gl, width, height);
+
+          /**
+           *
+           * @param {WebGL2RenderingContext} gl
+           * @param {number} width
+           * @param {number} height
+           */
+          function draw(gl, width, height) {}
+        },
+        false,
+      );
+    </script>
+  </body>
+</html>
