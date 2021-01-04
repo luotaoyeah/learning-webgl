@@ -17,7 +17,7 @@ const utils = {
    * @returns {WebGL2RenderingContext}
    */
   getGLContext(canvas) {
-    return canvas.getContext('webgl2') || console.error('WebGL2 is not available in your browser.');
+    return canvas.getContext('webgl2');
   },
 
   /**

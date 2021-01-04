@@ -1,5 +1,8 @@
 # add files you wish to ignore here
 
 node_modules/
-coverage/
-dist/
+/coverage/
+/dist/
+/src/book/real-time-3d-graphics-with-webgl2/common/models/
+/src/book/real-time-3d-graphics-with-webgl2/common/lib/dat.gui.js
+/src/book/real-time-3d-graphics-with-webgl2/common/lib/gl-matrix.js
