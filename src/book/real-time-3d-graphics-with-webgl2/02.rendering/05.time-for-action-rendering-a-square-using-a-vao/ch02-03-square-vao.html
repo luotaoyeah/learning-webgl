@@ -157,9 +157,6 @@
 
         gl.bindVertexArray(squareVAO);
 
-        // Bind IBO
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
-
         // Draw to the scene using triangle primitives
         gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
 
