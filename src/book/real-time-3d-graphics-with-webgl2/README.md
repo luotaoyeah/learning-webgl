@@ -10,3 +10,4 @@
   - [06.time-for-action-rendering-modes](02.rendering/06.time-for-action-rendering-modes)
   - [08.time-for-action-querying-the-state-of-buffers](02.rendering/08.time-for-action-querying-the-state-of-buffers)
   - [11.time-for-action-loading-a-cone-with-ajax](02.rendering/11.time-for-action-loading-a-cone-with-ajax)
+  - [12.architecture-updates](02.rendering/12.architecture-updates)

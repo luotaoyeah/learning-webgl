@@ -22,7 +22,7 @@ const utils = {
 
   /**
    * Given a canvas element, expand it to the size of the window
-   * and ensure that it automatically resizes as the window changes
+   * and ensure that it automatically resizes as the window changes.
    *
    * @param {HTMLCanvasElement} canvas
    */
@@ -38,7 +38,8 @@ const utils = {
 
   /**
    * Given a WebGL context and an id for a shader script,
-   * return a compiled shader
+   * return a compiled shader.
+   *
    * @param {WebGL2RenderingContext} gl
    * @param {string} id
    * @returns {WebGLShader|null}
