@@ -11,3 +11,5 @@
   - [08.time-for-action-querying-the-state-of-buffers](02.rendering/08.time-for-action-querying-the-state-of-buffers)
   - [11.time-for-action-loading-a-cone-with-ajax](02.rendering/11.time-for-action-loading-a-cone-with-ajax)
   - [12.architecture-updates](02.rendering/12.architecture-updates)
+- [03.lights](03.lights)
+  - [06.time-for-action-updating-uniforms-in-real-time](03.lights/06.time-for-action-updating-uniforms-in-real-time)

@@ -94,9 +94,9 @@ const utils = {
   /**
    * Returns computed normals for provided vertices.
    * Note: Indices have to be completely defined--NO TRIANGLE_STRIP only TRIANGLES.
-   * @param {Array<any>} vs
-   * @param {Array<any>} ind
-   * @returns {Array<any>}
+   * @param {Array<number>} vs
+   * @param {Array<number>} ind
+   * @returns {Array<number>}
    */
   calculateNormals(vs, ind) {
     const x = 0,
