@@ -13,3 +13,4 @@
   - [12.architecture-updates](02.rendering/12.architecture-updates)
 - [03.lights](03.lights)
   - [06.time-for-action-updating-uniforms-in-real-time](03.lights/06.time-for-action-updating-uniforms-in-real-time)
+  - [07.time-for-action-goraud-shading](03.lights/07.time-for-action-goraud-shading)
