@@ -1,4 +1,3 @@
-"use strict";
 window.addEventListener('load', function () {
     const canvasEl = document.querySelector('#canvas01');
     if (canvasEl) {
