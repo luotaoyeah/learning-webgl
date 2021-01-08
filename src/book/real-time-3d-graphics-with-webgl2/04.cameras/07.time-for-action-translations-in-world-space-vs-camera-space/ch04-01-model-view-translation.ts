@@ -148,6 +148,7 @@ function draw() {
   }
 }
 
+// @ts-ignore
 function init() {
   configure();
   load();

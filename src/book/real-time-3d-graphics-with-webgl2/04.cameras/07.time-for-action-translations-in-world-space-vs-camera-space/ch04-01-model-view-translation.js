@@ -126,6 +126,7 @@ function draw() {
         console.error(error);
     }
 }
+// @ts-ignore
 function init() {
     configure();
     load();

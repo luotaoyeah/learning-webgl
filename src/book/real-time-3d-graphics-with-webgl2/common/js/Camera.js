@@ -2,7 +2,6 @@
 
 // Abstraction over constructing and interacting with a 3D scene using a camera
 class Camera {
-
   constructor(type = Camera.ORBITING_TYPE) {
     this.position = vec3.create();
     this.focus = vec3.create();
@@ -38,9 +37,7 @@ class Camera {
 
   // Change camera type
   setType(type) {
-    ~Camera.TYPES.indexOf(type)
-      ? this.type = type
-      : console.error(`Camera type (${type}) not supported`);
+    ~Camera.TYPES.indexOf(type) ? (this.type = type) : console.error(`Camera type (${type}) not supported`);
   }
 
   // Position the camera back home
@@ -66,8 +63,7 @@ class Camera {
       newPosition[0] = this.position[0] - step * normal[0];
       newPosition[1] = this.position[1] - step * normal[1];
       newPosition[2] = this.position[2] - step * normal[2];
-    }
-    else {
+    } else {
       newPosition[0] = this.position[0];
       newPosition[1] = this.position[1];
       newPosition[2] = this.position[2] - step;
@@ -145,12 +141,11 @@ class Camera {
 
     if (this.isTracking()) {
       mat4.translate(this.matrix, this.matrix, this.position);
-      mat4.rotateY(this.matrix, this.matrix, this.azimuth * Math.PI / 180);
-      mat4.rotateX(this.matrix, this.matrix, this.elevation * Math.PI / 180);
-    }
-    else {
-      mat4.rotateY(this.matrix, this.matrix, this.azimuth * Math.PI / 180);
-      mat4.rotateX(this.matrix, this.matrix, this.elevation * Math.PI / 180);
+      mat4.rotateY(this.matrix, this.matrix, (this.azimuth * Math.PI) / 180);
+      mat4.rotateX(this.matrix, this.matrix, (this.elevation * Math.PI) / 180);
+    } else {
+      mat4.rotateY(this.matrix, this.matrix, (this.azimuth * Math.PI) / 180);
+      mat4.rotateX(this.matrix, this.matrix, (this.elevation * Math.PI) / 180);
       mat4.translate(this.matrix, this.matrix, this.position);
     }
 
@@ -173,9 +168,8 @@ class Camera {
     mat4.invert(matrix, this.matrix);
     return matrix;
   }
-
 }
 
 // Two defined modes for the camera
 Camera.TYPES = ['ORBITING_TYPE', 'TRACKING_TYPE'];
-Camera.TYPES.forEach(type => Camera[type] = type);
+Camera.TYPES.forEach((type) => (Camera[type] = type));

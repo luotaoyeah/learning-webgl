@@ -138,6 +138,73 @@ declare class Scene {
   public printRenderOrder(): void;
 }
 
+declare class Camera {
+  public constructor(type: any);
+
+  // Return whether the camera is in orbiting mode
+  public isOrbiting(): boolean;
+
+  // Return whether the camera is in tracking mode
+  public isTracking(): boolean;
+
+  // Change camera type
+  public setType(type): void;
+
+  // Position the camera back home
+  public goHome(home): void;
+
+  // Dolly the camera
+  public dolly(stepIncrement): void;
+
+  // Change camera position
+  public setPosition(position): void;
+
+  // Change camera focus
+  public setFocus(focus): void;
+
+  // Set camera azimuth
+  public setAzimuth(azimuth): void;
+
+  // Change camera azimuth
+  public changeAzimuth(azimuth): void;
+
+  // Set camera elevation
+  public setElevation(elevation): void;
+
+  // Change camera elevation
+  public changeElevation(elevation): void;
+  // Update the camera orientation
+  public calculateOrientation(): void;
+
+  // Update camera values
+  public update(): void;
+
+  // Returns the view transform
+  public getViewTransform(): mat4;
+}
+
+declare class Transforms {
+  public constructor(gl: WebGL2RenderingContext, program: Program, camera: Camera, canvas: HTMLCanvasElement);
+
+  // Calculates the Model-View matrix
+  public calculateModelView(): void;
+
+  // Calculates the Normal matrix
+  public calculateNormal(): void;
+
+  // Updates perspective
+  public updatePerspective(): void;
+
+  // Sets all matrix uniforms
+  public setMatrixUniforms(): void;
+
+  // Pushes matrix onto the stack
+  public push(): void;
+
+  // Pops and returns matrix off the stack
+  public pop(): any | null;
+}
+
 declare class Program {
   public uProjectionMatrix: number;
   public uModelViewMatrix: number;
