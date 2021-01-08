@@ -16,3 +16,5 @@
   - [07.time-for-action-goraud-shading](03.lights/07.time-for-action-goraud-shading)
   - [11.time-for-action-working-on-the-wall](03.lights/11.time-for-action-working-on-the-wall)
   - [13.time-for-action-positional-lights-in-action](03.lights/13.time-for-action-positional-lights-in-action)
+- [04.cameras](04.cameras)
+  - [07.time-for-action-translations-in-world-space-vs-camera-space](04.cameras/07.time-for-action-translations-in-world-space-vs-camera-space)

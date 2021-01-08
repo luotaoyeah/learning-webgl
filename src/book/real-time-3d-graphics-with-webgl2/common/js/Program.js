@@ -3,7 +3,6 @@
 // Program constructor that takes a WebGL context and script tag IDs
 // to extract vertex and fragment shader source code from the page
 class Program {
-
   constructor(gl, vertexShaderId, fragmentShaderId) {
     this.gl = gl;
     this.program = gl.createProgram();
@@ -37,14 +36,14 @@ class Program {
 
   // Set references to attributes onto the program instance
   setAttributeLocations(attributes) {
-    attributes.forEach(attribute => {
+    attributes.forEach((attribute) => {
       this[attribute] = this.gl.getAttribLocation(this.program, attribute);
     });
   }
 
   // Set references to uniforms onto the program instance
   setUniformLocations(uniforms) {
-    uniforms.forEach(uniform => {
+    uniforms.forEach((uniform) => {
       this[uniform] = this.gl.getUniformLocation(this.program, uniform);
     });
   }
@@ -53,5 +52,4 @@ class Program {
   getUniform(uniformLocation) {
     return this.gl.getUniform(this.program, uniformLocation);
   }
-
 }

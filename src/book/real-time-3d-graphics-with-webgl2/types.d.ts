@@ -74,22 +74,96 @@ declare namespace utils {
   export function calculateTangents(vs, tc, ind): Array<any>;
 }
 
-declare class Clock {}
+declare class Clock {
+  public tick(): void;
+
+  public start(): void;
+
+  public stop(): void;
+}
 
 declare class Floor {
-  constructor(dimension?: number, lines?: number);
+  public constructor(dimension?: number, lines?: number);
 }
 
 declare class Axis {
-  constructor(dimension?: number);
+  public constructor(dimension?: number);
+}
+
+declare class Texture {
+  public constructor(gl: WebGL2RenderingContext, source: any);
+
+  public setImage(source: any): void;
+
+  public handleLoadedTexture(): void;
 }
 
 declare class Scene {
   constructor(gl: WebGL2RenderingContext, program: Program);
+
+  // Find the item with given alias
+  public get(alias): any;
+
+  /**
+   * Asynchronously load a file
+   */
+  public load(filename, alias, attributes?: Array<string>): Promise<any>;
+
+  // Helper function for returning as list of items for a given model
+  public loadByParts(path, count, alias): void;
+
+  // Add object to scene, by settings default and configuring all necessary
+  // buffers and textures
+  public add(object, attributes?: Array<string>): void;
+
+  // Traverses over every item in the scene
+  public traverse(cb): void;
+
+  // Removes an item from the scene with a given alias
+  public remove(alias): void;
+
+  // Renders an item first
+  public renderFirst(alias): void;
+
+  // Renders an item last
+  public renderLast(alias): void;
+
+  // Pushes an item up the render priority
+  public renderSooner(alias): void;
+
+  // Pushes an item down the render priority
+  public renderLater(alias): void;
+
+  // Construct and print a string representing the render order (useful for debugging)
+  public printRenderOrder(): void;
 }
 
 declare class Program {
-  constructor(gl: WebGL2RenderingContext, vertexShaderId: string, fragmentShaderId: string);
+  public uProjectionMatrix: number;
+  public uModelViewMatrix: number;
+  public uNormalMatrix: number;
+  public uMaterialDiffuse: number;
+  public uWireframe: number;
+  public uLightPosition: number;
+  public uLightAmbient: number;
+  public uLightDiffuse: number;
+
+  public constructor(gl: WebGL2RenderingContext, vertexShaderId: string, fragmentShaderId: string);
+
+  // Sets the WebGL context to use current program
+  public useProgram(): void;
+
+  // Load up the given attributes and uniforms from the given values
+  public load(attributes: Array<string>, uniforms: Array<string>): void;
+
+  // Set references to attributes onto the program instance
+  public setAttributeLocations(attributes: Array<string>): void;
+
+  // Set references to uniforms onto the program instance
+  public setUniformLocations(uniforms: Array<string>): void;
+
+  // Get the uniform location from the program
+  public getUniform(uniformLocation: WebGLUniformLocation): any;
 }
 
 // Global Utilities
