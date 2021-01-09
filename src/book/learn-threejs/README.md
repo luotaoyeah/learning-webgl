@@ -8,3 +8,4 @@
 - [02.the-basic-components-that-make-up-a-three-js-application](02.the-basic-components-that-make-up-a-three-js-application)
   - [01.creating-a-scene](02.the-basic-components-that-make-up-a-three-js-application/01.creating-a-scene)
     - [01.the-basic-functionality-of-a-scene](02.the-basic-components-that-make-up-a-three-js-application/01.creating-a-scene/01.the-basic-functionality-of-a-scene)
+    - [02.adding-fog-to-the-scene](02.the-basic-components-that-make-up-a-three-js-application/01.creating-a-scene/02.adding-fog-to-the-scene)
