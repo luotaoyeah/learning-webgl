@@ -1,22 +1,7 @@
-declare class Panel {}
+import * as THREE from 'three';
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 
-declare class Stats {
-  public REVISION: number;
-  public dom: HTMLDivElement;
-  public domElement: HTMLDivElement;
-  public Panel: Panel;
-
-  public addPanel(panel: Panel): Panel;
-
-  public showPanel(id: string): void;
-
-  public begin(): void;
-
-  public end(): void;
-
-  public update(): void;
-
-  public setMode(id: string): void;
+declare global {
+  export function initStats(type?: string | number): Stats;
+  export function initTrackballControls(camera: THREE.Camera, renderer: THREE.WebGLRenderer): TrackballControls;
 }
-
-declare function initStats(type?: string | number): Stats;
