@@ -9,12 +9,16 @@
     "json-server": "ts-node json-server"
   },
   "dependencies": {
+    "dat.gui": "0.7.7",
     "gl-matrix": "2.8.1",
+    "stats.js": "0.17.0",
     "three": "0.134.0"
   },
   "devDependencies": {
+    "@types/dat.gui": "0.7.7",
     "@types/gl-matrix": "2.4.5",
     "@types/json-server": "0.14.4",
+    "@types/stats.js": "0.17.0",
     "@types/three": "0.134.0",
     "chalk": "^4.1.2",
     "json-server": "^0.15.0",
