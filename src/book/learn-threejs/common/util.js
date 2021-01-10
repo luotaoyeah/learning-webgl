@@ -215,7 +215,7 @@ function addGroundPlane(scene) {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -0.5 * Math.PI;
+  plane.rotation.x = -(90 * Math.PI / 180);
   plane.position.x = 15;
   plane.position.y = 0;
   plane.position.z = 0;
@@ -249,7 +249,7 @@ function addLargeGroundPlane(scene, useTexture) {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -0.5 * Math.PI;
+  plane.rotation.x = -(90 * Math.PI / 180);
   plane.position.x = 0;
   plane.position.y = 0;
   plane.position.z = 0;
@@ -301,7 +301,7 @@ function addHouseAndTree(scene) {
     plane.receiveShadow = true;
 
     // rotate and position the plane
-    plane.rotation.x = -0.5 * Math.PI;
+    plane.rotation.x = -(90 * Math.PI / 180);
     plane.position.x = 15;
     plane.position.y = 0;
     plane.position.z = 0;

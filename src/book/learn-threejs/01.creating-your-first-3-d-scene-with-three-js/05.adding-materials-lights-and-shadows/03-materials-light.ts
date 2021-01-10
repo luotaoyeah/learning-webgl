@@ -45,7 +45,7 @@ function init() {
   var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
   // rotate and position the plane
-  plane.rotation.x = -0.5 * Math.PI;
+  plane.rotation.x = -(90 * Math.PI / 180);
   plane.position.set(15, 0, 0);
   plane.receiveShadow = true;
 
@@ -124,7 +124,7 @@ function createGroundPlane(scene) {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -0.5 * Math.PI;
+  plane.rotation.x = -(90 * Math.PI / 180);
   plane.position.x = 15;
   plane.position.y = 0;
   plane.position.z = 0;

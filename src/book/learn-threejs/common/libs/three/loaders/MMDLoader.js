@@ -1284,7 +1284,7 @@ THREE.MMDLoader = ( function () {
 
 			context.clearRect( 0, 0, width, height );
 			context.translate( width / 2.0, height / 2.0 );
-			context.rotate( 0.5 * Math.PI ); // 90.0 * Math.PI / 180.0
+			context.rotate( (90 * Math.PI / 180) ); // 90.0 * Math.PI / 180.0
 			context.translate( - width / 2.0, - height / 2.0 );
 			context.drawImage( image, 0, 0 );
 

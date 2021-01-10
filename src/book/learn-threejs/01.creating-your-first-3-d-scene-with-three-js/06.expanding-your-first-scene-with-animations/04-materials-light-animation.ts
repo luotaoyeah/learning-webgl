@@ -18,7 +18,7 @@ function init() {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -0.5 * Math.PI;
+  plane.rotation.x = -(90 * Math.PI / 180);
   plane.position.x = 15;
   plane.position.y = 0;
   plane.position.z = 0;
