@@ -13,3 +13,4 @@
     - [02.functions-and-attributes-for-meshes](02.the-basic-components-that-make-up-a-three-js-application/02.geometries-and-meshes/02.functions-and-attributes-for-meshes)
   - [03.different-cameras-for-different-uses](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses)
     - [01.orthographic-camera-versus-perspective-camera](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses/01.orthographic-camera-versus-perspective-camera)
+    - [02.looking-at-specific-points](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses/02.looking-at-specific-points)
