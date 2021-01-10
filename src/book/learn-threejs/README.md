@@ -11,3 +11,5 @@
     - [02.adding-fog-to-the-scene](02.the-basic-components-that-make-up-a-three-js-application/01.creating-a-scene/02.adding-fog-to-the-scene)
   - [02.geometries-and-meshes](02.the-basic-components-that-make-up-a-three-js-application/02.geometries-and-meshes)
     - [02.functions-and-attributes-for-meshes](02.the-basic-components-that-make-up-a-three-js-application/02.geometries-and-meshes/02.functions-and-attributes-for-meshes)
+  - [03.different-cameras-for-different-uses](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses)
+    - [01.orthographic-camera-versus-perspective-camera](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses/01.orthographic-camera-versus-perspective-camera)
