@@ -27,5 +27,9 @@ declare global {
 
   export function addHouseAndTree(scene: three.Scene): void;
 
+  export function addDefaultCubeAndSphere(scene: three.Scene): { cube: three.Mesh; sphere: three.Mesh };
+
+  export function addGroundPlane(scene: three.Scene): three.Mesh;
+
   export function initTrackballControls(camera: three.Camera, renderer: three.WebGLRenderer): TrackballControls;
 }

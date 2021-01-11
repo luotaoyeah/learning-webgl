@@ -17,3 +17,4 @@
 - [03.working-with-light-sources-in-three-js](03.working-with-light-sources-in-three-js)
   - [02.basic-lights](03.working-with-light-sources-in-three-js/02.basic-lights)
     - [01.three-ambient-light](03.working-with-light-sources-in-three-js/02.basic-lights/01.three-ambient-light)
+    - [02.three-spot-light](03.working-with-light-sources-in-three-js/02.basic-lights/02.three-spot-light)
