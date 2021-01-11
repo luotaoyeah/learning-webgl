@@ -14,3 +14,6 @@
   - [03.different-cameras-for-different-uses](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses)
     - [01.orthographic-camera-versus-perspective-camera](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses/01.orthographic-camera-versus-perspective-camera)
     - [02.looking-at-specific-points](02.the-basic-components-that-make-up-a-three-js-application/03.different-cameras-for-different-uses/02.looking-at-specific-points)
+- [03.working-with-light-sources-in-three-js](03.working-with-light-sources-in-three-js)
+  - [02.basic-lights](03.working-with-light-sources-in-three-js/02.basic-lights)
+    - [01.three-ambient-light](03.working-with-light-sources-in-three-js/02.basic-lights/01.three-ambient-light)

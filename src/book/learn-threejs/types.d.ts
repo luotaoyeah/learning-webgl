@@ -5,6 +5,7 @@ import { ParametricGeometry as OriginalParametricGeometry } from 'three/examples
 import { ParametricGeometries as OriginalParametricGeometries } from 'three/examples/jsm/geometries/ParametricGeometries';
 import { SceneUtils as OriginalSceneUtils } from 'three/examples/jsm/utils/SceneUtils';
 import { ConvexHull as OriginalConvexHull } from 'three/examples/jsm/math/ConvexHull';
+import { WebGLRendererParameters } from 'three/src/renderers/WebGLRenderer';
 
 declare global {
   export namespace THREE {
@@ -19,6 +20,12 @@ declare global {
   }
 
   export function initStats(type?: string | number): Stats;
+
+  export function initRenderer(parameters?: WebGLRendererParameters): three.WebGLRenderer;
+
+  export function initCamera(position?: three.Vector3): three.PerspectiveCamera;
+
+  export function addHouseAndTree(scene: three.Scene): void;
 
   export function initTrackballControls(camera: three.Camera, renderer: three.WebGLRenderer): TrackballControls;
 }

@@ -215,7 +215,7 @@ function addGroundPlane(scene) {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -(90 * Math.PI / 180);
+  plane.rotation.x = -((90 * Math.PI) / 180);
   plane.position.x = 15;
   plane.position.y = 0;
   plane.position.z = 0;
@@ -249,7 +249,7 @@ function addLargeGroundPlane(scene, useTexture) {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -(90 * Math.PI / 180);
+  plane.rotation.x = -((90 * Math.PI) / 180);
   plane.position.x = 0;
   plane.position.y = 0;
   plane.position.z = 0;
@@ -266,10 +266,10 @@ function addHouseAndTree(scene) {
   createTree(scene);
 
   function createBoundingWall(scene) {
-    var wallLeft = new THREE.CubeGeometry(70, 2, 2);
-    var wallRight = new THREE.CubeGeometry(70, 2, 2);
-    var wallTop = new THREE.CubeGeometry(2, 2, 50);
-    var wallBottom = new THREE.CubeGeometry(2, 2, 50);
+    var wallLeft = new THREE.BoxGeometry(70, 2, 2);
+    var wallRight = new THREE.BoxGeometry(70, 2, 2);
+    var wallTop = new THREE.BoxGeometry(2, 2, 50);
+    var wallBottom = new THREE.BoxGeometry(2, 2, 50);
 
     var wallMaterial = new THREE.MeshPhongMaterial({
       color: 0xa0522d,
@@ -301,7 +301,7 @@ function addHouseAndTree(scene) {
     plane.receiveShadow = true;
 
     // rotate and position the plane
-    plane.rotation.x = -(90 * Math.PI / 180);
+    plane.rotation.x = -((90 * Math.PI) / 180);
     plane.position.x = 15;
     plane.position.y = 0;
     plane.position.z = 0;
@@ -344,7 +344,7 @@ function addHouseAndTree(scene) {
    * @param scene The scene to add the tree to
    */
   function createTree(scene) {
-    var trunk = new THREE.CubeGeometry(1, 8, 1);
+    var trunk = new THREE.BoxGeometry(1, 8, 1);
     var leaves = new THREE.SphereGeometry(4);
 
     // create the mesh
