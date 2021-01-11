@@ -5,6 +5,7 @@ import { ParametricGeometry as OriginalParametricGeometry } from 'three/examples
 import { ParametricGeometries as OriginalParametricGeometries } from 'three/examples/jsm/geometries/ParametricGeometries';
 import { SceneUtils as OriginalSceneUtils } from 'three/examples/jsm/utils/SceneUtils';
 import { ConvexHull as OriginalConvexHull } from 'three/examples/jsm/math/ConvexHull';
+import { RectAreaLightHelper as OriginalRectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper';
 import { WebGLRendererParameters } from 'three/src/renderers/WebGLRenderer';
 
 declare global {
@@ -12,6 +13,8 @@ declare global {
     export class ConvexGeometry extends OriginalConvexGeometry {}
 
     export class ParametricGeometry extends OriginalParametricGeometry {}
+
+    export class RectAreaLightHelper extends OriginalRectAreaLightHelper {}
 
     export class ConvexHull extends OriginalConvexHull {}
 
