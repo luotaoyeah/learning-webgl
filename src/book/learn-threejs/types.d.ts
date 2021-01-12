@@ -1,4 +1,5 @@
 import * as three from 'three';
+import * as dat from 'dat.gui';
 import { WebGLRendererParameters } from 'three/src/renderers/WebGLRenderer';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 import { ConvexGeometry as OriginalConvexGeometry } from 'three/examples/jsm/geometries/ConvexGeometry';
@@ -11,6 +12,7 @@ import {
   Lensflare as OriginalLensflare,
   LensflareElement as OriginalLensflareElement,
 } from 'three/examples/jsm/objects/Lensflare';
+import { OBJLoader as OriginalOBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 
 declare global {
   export namespace THREE {
@@ -23,6 +25,8 @@ declare global {
     export class Lensflare extends OriginalLensflare {}
 
     export class LensflareElement extends OriginalLensflareElement {}
+
+    export class OBJLoader extends OriginalOBJLoader {}
 
     export class ConvexHull extends OriginalConvexHull {}
 
@@ -43,4 +47,8 @@ declare global {
   export function addGroundPlane(scene: three.Scene): three.Mesh;
 
   export function initTrackballControls(camera: three.Camera, renderer: three.WebGLRenderer): TrackballControls;
+
+  export function loadGopher(material: three.Material): Promise<any>;
+
+  export function addBasicMaterialSettings(gui: dat.GUI, controls: object, material: three.Material, name?: string): dat.GUI;
 }

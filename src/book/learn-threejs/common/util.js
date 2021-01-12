@@ -434,11 +434,10 @@ function createGhostTexture() {
  * @param gui the gui to add to
  * @param controls the current controls object
  * @param material the material to control
- * @param geometry the geometry we're working with
  * @param name optionally the name to assign to the folder
  */
 function addBasicMaterialSettings(gui, controls, material, name) {
-  var folderName = name !== undefined ? name : 'THREE.Material';
+  var folderName = name || 'THREE.Material';
 
   controls.material = material;
 
@@ -448,22 +447,21 @@ function addBasicMaterialSettings(gui, controls, material, name) {
   folder.add(controls.material, 'name');
   folder.add(controls.material, 'opacity', 0, 1, 0.01);
   folder.add(controls.material, 'transparent');
-  folder.add(controls.material, 'overdraw', 0, 1, 0.01);
   folder.add(controls.material, 'visible');
-  folder.add(controls.material, 'side', { FrontSide: 0, BackSide: 1, BothSides: 2 }).onChange(function (side) {
+  folder.add(controls.material, 'side', { FrontSide: 0, BackSide: 1, DoubleSide: 2 }).onChange(function (side) {
     controls.material.side = parseInt(side);
   });
 
   folder.add(controls.material, 'colorWrite');
-  folder.add(controls.material, 'flatShading').onChange(function (shading) {
-    controls.material.flatShading = shading;
-    controls.material.needsUpdate = true;
-  });
   folder.add(controls.material, 'premultipliedAlpha');
   folder.add(controls.material, 'dithering');
-  folder.add(controls.material, 'shadowSide', { FrontSide: 0, BackSide: 1, BothSides: 2 });
+  folder.add(controls.material, 'shadowSide', { FrontSide: 0, BackSide: 1, DoubleSide: 2 });
   folder
-    .add(controls.material, 'vertexColors', { NoColors: THREE.NoColors, FaceColors: THREE.FaceColors, VertexColors: THREE.VertexColors })
+    .add(controls.material, 'vertexColors', {
+      NoColors: THREE.NoColors,
+      FaceColors: THREE.FaceColors,
+      VertexColors: THREE.VertexColors,
+    })
     .onChange(function (vertexColors) {
       material.vertexColors = parseInt(vertexColors);
     });
@@ -600,14 +598,14 @@ function addMeshSelection(gui, controls, material, scene) {
 
 /**
  * Load a gopher, and apply the material
- * @param material if set apply this material to the gopher
+ * @param {THREE.Material} material if set apply this material to the gopher
  * @returns promise which is fullfilled once the goher is loaded
  */
 function loadGopher(material) {
   var loader = new THREE.OBJLoader();
   var mesh = null;
-  var p = new Promise(function (resolve) {
-    loader.load('../../assets/models/gopher/gopher.obj', function (loadedMesh) {
+  return new Promise(function (resolve) {
+    loader.load('../../../common/assets/models/gopher/gopher.obj', function (loadedMesh) {
       // this is a group of meshes, so iterate until we reach a THREE.Mesh
       mesh = loadedMesh;
       if (material) {
@@ -618,8 +616,6 @@ function loadGopher(material) {
       resolve(mesh);
     });
   });
-
-  return p;
 }
 
 function setMaterialGroup(material, group) {

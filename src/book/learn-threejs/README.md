@@ -24,3 +24,7 @@
     - [01.three-hemisphere-light](03.working-with-light-sources-in-three-js/03.special-lights/01.three-hemisphere-light)
     - [02.three-area-light](03.working-with-light-sources-in-three-js/03.special-lights/02.three-area-light)
     - [03.lens-flare](03.working-with-light-sources-in-three-js/03.special-lights/03.lens-flare)
+- [04.working-with-three-js-materials](04.working-with-three-js-materials)
+  - [01.understanding-common-material-properties](04.working-with-three-js-materials/01.understanding-common-material-properties)
+  - [02.starting-with-a-simple-mesh](04.working-with-three-js-materials/02.starting-with-a-simple-mesh)
+    - [01.three-mesh-basic-material](04.working-with-three-js-materials/02.starting-with-a-simple-mesh/01.three-mesh-basic-material)
