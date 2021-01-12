@@ -22,3 +22,5 @@
     - [04.three-directional-light](03.working-with-light-sources-in-three-js/02.basic-lights/04.three-directional-light)
   - [03.special-lights](03.working-with-light-sources-in-three-js/03.special-lights)
     - [01.three-hemisphere-light](03.working-with-light-sources-in-three-js/03.special-lights/01.three-hemisphere-light)
+    - [02.three-area-light](03.working-with-light-sources-in-three-js/03.special-lights/02.three-area-light)
+    - [03.lens-flare](03.working-with-light-sources-in-three-js/03.special-lights/03.lens-flare)

@@ -1,4 +1,5 @@
 import * as three from 'three';
+import { WebGLRendererParameters } from 'three/src/renderers/WebGLRenderer';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 import { ConvexGeometry as OriginalConvexGeometry } from 'three/examples/jsm/geometries/ConvexGeometry';
 import { ParametricGeometry as OriginalParametricGeometry } from 'three/examples/jsm/geometries/ParametricGeometry';
@@ -6,7 +7,10 @@ import { ParametricGeometries as OriginalParametricGeometries } from 'three/exam
 import { SceneUtils as OriginalSceneUtils } from 'three/examples/jsm/utils/SceneUtils';
 import { ConvexHull as OriginalConvexHull } from 'three/examples/jsm/math/ConvexHull';
 import { RectAreaLightHelper as OriginalRectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper';
-import { WebGLRendererParameters } from 'three/src/renderers/WebGLRenderer';
+import {
+  Lensflare as OriginalLensflare,
+  LensflareElement as OriginalLensflareElement,
+} from 'three/examples/jsm/objects/Lensflare';
 
 declare global {
   export namespace THREE {
@@ -15,6 +19,10 @@ declare global {
     export class ParametricGeometry extends OriginalParametricGeometry {}
 
     export class RectAreaLightHelper extends OriginalRectAreaLightHelper {}
+
+    export class Lensflare extends OriginalLensflare {}
+
+    export class LensflareElement extends OriginalLensflareElement {}
 
     export class ConvexHull extends OriginalConvexHull {}
 
