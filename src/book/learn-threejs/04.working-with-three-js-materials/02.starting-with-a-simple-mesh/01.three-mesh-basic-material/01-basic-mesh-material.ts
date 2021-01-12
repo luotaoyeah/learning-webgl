@@ -64,9 +64,6 @@ function init() {
 
   const trackballControls = initTrackballControls(camera, renderer);
 
-  // call the render function
-  var step = 0;
-
   var controls = new (function () {
     this.rotationSpeed = 0.02;
     this.bouncingSpeed = 0.03;

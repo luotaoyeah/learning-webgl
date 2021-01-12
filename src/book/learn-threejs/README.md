@@ -28,3 +28,4 @@
   - [01.understanding-common-material-properties](04.working-with-three-js-materials/01.understanding-common-material-properties)
   - [02.starting-with-a-simple-mesh](04.working-with-three-js-materials/02.starting-with-a-simple-mesh)
     - [01.three-mesh-basic-material](04.working-with-three-js-materials/02.starting-with-a-simple-mesh/01.three-mesh-basic-material)
+    - [02.three-mesh-depth-material](04.working-with-three-js-materials/02.starting-with-a-simple-mesh/02.three-mesh-depth-material)
