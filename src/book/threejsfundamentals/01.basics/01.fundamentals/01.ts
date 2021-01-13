@@ -10,10 +10,14 @@ function main() {
   const scene = new THREE.Scene();
 
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
-  const meshBasicMaterial = new THREE.MeshBasicMaterial({ color: '#44aa88' });
+  const meshBasicMaterial = new THREE.MeshPhongMaterial({ color: '#44aa88' });
   const cube = new THREE.Mesh(boxGeometry, meshBasicMaterial);
 
   scene.add(cube);
+
+  const directionalLight = new THREE.DirectionalLight('#ffffff', 1);
+  directionalLight.position.set(-1, 2, 4);
+  scene.add(directionalLight);
 
   requestAnimationFrame(render);
 
