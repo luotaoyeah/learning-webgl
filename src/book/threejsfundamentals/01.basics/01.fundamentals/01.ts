@@ -15,9 +15,13 @@ function main() {
 
   scene.add(cube);
 
-  render();
+  requestAnimationFrame(render);
 
-  function render() {
+  function render(time: number) {
+    const second = time / 1000;
+    cube.rotation.x = second;
+    cube.rotation.y = second;
+
     requestAnimationFrame(render);
     renderer.render(scene, camera);
   }
