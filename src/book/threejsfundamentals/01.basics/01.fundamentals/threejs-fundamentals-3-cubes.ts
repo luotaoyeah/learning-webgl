@@ -9,10 +9,8 @@ function main() {
   const scene = new THREE.Scene();
 
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
-  const meshBasicMaterial = new THREE.MeshPhongMaterial({ color: '#44aa88' });
-  const cube = new THREE.Mesh(boxGeometry, meshBasicMaterial);
 
-  scene.add(cube);
+  const cubes = [makeInstance(boxGeometry, '#44aa88', 0), makeInstance(boxGeometry, '#8844aa', -2), makeInstance(boxGeometry, '#aa8844', 2)];
 
   const directionalLight = new THREE.DirectionalLight('#ffffff', 1);
   directionalLight.position.set(-1, 2, 4);
@@ -20,10 +18,23 @@ function main() {
 
   requestAnimationFrame(render);
 
+  function makeInstance(geometry: THREE.BoxGeometry, color: string, x: number): THREE.Mesh {
+    const meshPhongMaterial = new THREE.MeshPhongMaterial({ color });
+    const cube = new THREE.Mesh(geometry, meshPhongMaterial);
+    cube.position.x = x;
+    scene.add(cube);
+    return cube;
+  }
+
   function render(time: number) {
     const second = time / 1000;
-    cube.rotation.x = second;
-    cube.rotation.y = second;
+
+    cubes.forEach((cube, index) => {
+      const speed = 1 + index * 0.1;
+      const rotation = second * speed;
+      cube.rotation.x = rotation;
+      cube.rotation.y = rotation;
+    });
 
     requestAnimationFrame(render);
     renderer.render(scene, camera);
