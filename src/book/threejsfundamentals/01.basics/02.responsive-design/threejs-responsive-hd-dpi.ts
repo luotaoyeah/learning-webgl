@@ -1,12 +1,13 @@
 import * as three_t from '../../../../../node_modules/@types/three';
 import * as three from '../../../../../node_modules/three/build/three.module.js';
-import { WebGLRenderer } from 'three';
+import { initStatsJS } from '../../common/util.js';
 
 const THREE = three as typeof three_t;
 
 function main() {
   const canvas = document.getElementById('c');
   const renderer = new THREE.WebGLRenderer({ canvas });
+  const stats = initStatsJS();
 
   const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 5);
   camera.position.z = 2;
@@ -31,9 +32,10 @@ function main() {
     return cube;
   }
 
-  function resizeRendererToDisplaySize(renderer: WebGLRenderer): boolean {
+  function resizeRendererToDisplaySize(renderer: THREE.WebGLRenderer): boolean {
     if (renderer.domElement.width !== renderer.domElement.clientWidth || renderer.domElement.height !== renderer.domElement.clientHeight) {
-      renderer.setSize(renderer.domElement.clientWidth, renderer.domElement.clientHeight, false);
+      const dpr = window.devicePixelRatio | 0;
+      renderer.setSize(renderer.domElement.clientWidth * dpr, renderer.domElement.clientHeight * dpr, false);
       return true;
     }
 
@@ -41,6 +43,8 @@ function main() {
   }
 
   function render(time: number) {
+    stats.update();
+
     const second = time / 1000;
 
     cubes.forEach((cube, index) => {
