@@ -1,15 +1,12 @@
-import * as three_t from '../../../../../node_modules/@types/three';
-import * as three from '../../../../../node_modules/three/build/three.module.js';
-import { initStatsJS } from '../../common/util.js';
-
-const THREE = three as typeof three_t;
+import { initStats, initTrackballControls, THREE } from '../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
   const renderer = new THREE.WebGLRenderer({ canvas });
-  const stats = initStatsJS();
+  const stats = initStats();
   const camera = new THREE.PerspectiveCamera(40, 2, 0.1, 500);
   camera.position.z = 120;
+  const trackballControls = initTrackballControls(camera, renderer);
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xdddddd);
 
@@ -79,6 +76,7 @@ function main() {
 
   function render(time: number): void {
     stats.update();
+    trackballControls.update();
 
     if (resizeRendererToDisplaySize(renderer)) {
       camera.aspect = renderer.domElement.clientWidth / renderer.domElement.clientHeight;
