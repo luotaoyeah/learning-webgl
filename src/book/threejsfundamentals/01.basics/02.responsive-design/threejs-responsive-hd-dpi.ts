@@ -8,10 +8,8 @@ function main() {
   const canvas = document.getElementById('c');
   const renderer = new THREE.WebGLRenderer({ canvas });
   const stats = initStatsJS();
-
   const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 5);
   camera.position.z = 2;
-
   const scene = new THREE.Scene();
 
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -21,8 +19,6 @@ function main() {
   const directionalLight = new THREE.DirectionalLight('#ffffff', 1);
   directionalLight.position.set(-1, 2, 4);
   scene.add(directionalLight);
-
-  requestAnimationFrame(render);
 
   function makeInstance(geometry: THREE.BoxGeometry, color: string, x: number): THREE.Mesh {
     const meshPhongMaterial = new THREE.MeshPhongMaterial({ color });
@@ -38,25 +34,28 @@ function main() {
       renderer.setSize(renderer.domElement.clientWidth * dpr, renderer.domElement.clientHeight * dpr, false);
       return true;
     }
-
     return false;
   }
+
+  requestAnimationFrame(render);
 
   function render(time: number) {
     stats.update();
 
-    const second = time / 1000;
-
-    cubes.forEach((cube, index) => {
-      const speed = 1 + index * 0.1;
-      const rotation = second * speed;
-      cube.rotation.x = rotation;
-      cube.rotation.y = rotation;
-    });
-
     if (resizeRendererToDisplaySize(renderer)) {
       camera.aspect = renderer.domElement.clientWidth / renderer.domElement.clientHeight;
       camera.updateProjectionMatrix();
+    }
+
+    {
+      const second = time / 1000;
+
+      cubes.forEach((cube, index) => {
+        const speed = 1 + index * 0.1;
+        const rotation = second * speed;
+        cube.rotation.x = rotation;
+        cube.rotation.y = rotation;
+      });
     }
 
     requestAnimationFrame(render);
