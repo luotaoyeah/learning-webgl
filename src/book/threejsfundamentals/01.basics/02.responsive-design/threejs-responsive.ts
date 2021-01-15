@@ -1,8 +1,4 @@
-import * as three_t from '../../../../../node_modules/@types/three';
-import * as three from '../../../../../node_modules/three/build/three.module.js';
-import { WebGLRenderer } from 'three';
-
-const THREE = three as typeof three_t;
+import { THREE } from '../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
@@ -31,7 +27,7 @@ function main() {
     return cube;
   }
 
-  function resizeRendererToDisplaySize(renderer: WebGLRenderer): boolean {
+  function resizeRendererToDisplaySize(renderer: THREE.WebGLRenderer): boolean {
     if (renderer.domElement.width !== renderer.domElement.clientWidth || renderer.domElement.height !== renderer.domElement.clientHeight) {
       renderer.setSize(renderer.domElement.clientWidth, renderer.domElement.clientHeight, false);
       return true;

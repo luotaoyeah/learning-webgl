@@ -1,8 +1,4 @@
-import * as three_t from '../../../../../node_modules/@types/three';
-import * as three from '../../../../../node_modules/three/build/three.module.js';
-import { initStats } from '../../common/util.js';
-
-const THREE = three as typeof three_t;
+import { initStats, THREE } from '../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
