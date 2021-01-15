@@ -30,6 +30,17 @@ function main() {
 
   {
     addSolidGeometry(-2, 2, new THREE.BoxGeometry(8, 8, 8, 3, 6, 9));
+    addSolidGeometry(-1, 2, new THREE.CircleGeometry(6, 24, 90, 270 * (Math.PI / 180)));
+  }
+
+  {
+    const shape = new THREE.Shape();
+    shape.moveTo(-4, 4);
+    shape.lineTo(4, 4);
+    shape.lineTo(4, -4);
+    shape.lineTo(-4, -4);
+    shape.closePath();
+    addSolidGeometry(0, 2, new THREE.ShapeGeometry(shape));
   }
 
   function addObject(x: number, y: number, obj: THREE.Object3D): void {
@@ -84,7 +95,7 @@ function main() {
     }
 
     {
-      const second = time / 1000;
+      const second = time / 1000 / 2;
 
       objects.forEach((cube, index) => {
         const speed = 1 + index * 0.1;

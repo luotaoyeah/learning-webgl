@@ -12,9 +12,9 @@ declare namespace THREE_ {
 const THREE = window.THREE as typeof THREE_T & typeof THREE_;
 
 /**
- * 加载 stats.js
+ * 加载 stats.js.
  *
- * @returns {Stats} stats
+ * @returns stats
  */
 function initStats(): Stats {
   const stats = new Stats();
@@ -26,7 +26,7 @@ function initStats(): Stats {
 }
 
 /**
- * Initialize trackball controls to control the scene
+ * 加载 TrackballControls.
  *
  * @param camera
  * @param renderer
