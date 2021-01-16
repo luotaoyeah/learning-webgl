@@ -15,9 +15,6 @@ function main() {
 
   const trackballControls = initTrackballControls(camera, renderer);
 
-  const axesHelper = new THREE.AxesHelper(100);
-  scene.add(axesHelper);
-
   const objects: Array<THREE.Object3D> = [];
 
   {
@@ -58,6 +55,13 @@ function main() {
     const moonMesh = new THREE.Mesh(sphereGeometry, moonMaterial);
     moonOrbit.add(moonMesh);
     objects.push(moonMesh);
+
+    objects.forEach((obj) => {
+      const axesHelper = new THREE.AxesHelper();
+      (axesHelper.material as THREE.Material).depthTest = false;
+      axesHelper.renderOrder = 1;
+      obj.add(axesHelper);
+    });
   }
 
   function resizeRendererToDisplaySize(renderer: THREE.WebGLRenderer): boolean {
