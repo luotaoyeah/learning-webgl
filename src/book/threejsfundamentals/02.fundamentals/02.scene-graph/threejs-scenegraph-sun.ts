@@ -26,13 +26,38 @@ function main() {
   }
 
   {
-    const sphereGeometry = new THREE.SphereGeometry(1, 6, 6);
+    const sphereGeometry = new THREE.SphereGeometry(1, 8, 8);
+
+    const solarSystem = new THREE.Object3D();
+    scene.add(solarSystem);
+    objects.push(solarSystem);
 
     const sunMaterial = new THREE.MeshPhongMaterial({ emissive: 0xffff00 });
     const sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial);
     sunMesh.scale.set(5, 5, 5);
-    scene.add(sunMesh);
+    solarSystem.add(sunMesh);
     objects.push(sunMesh);
+
+    const earthOrbit = new THREE.Object3D();
+    earthOrbit.position.x = 10;
+    solarSystem.add(earthOrbit);
+    objects.push(earthOrbit);
+
+    const earthMaterial = new THREE.MeshPhongMaterial({ color: 0x2233ff, emissive: 0x112244 });
+    const earthMesh = new THREE.Mesh(sphereGeometry, earthMaterial);
+    earthOrbit.add(earthMesh);
+    objects.push(earthMesh);
+
+    const moonOrbit = new THREE.Object3D();
+    moonOrbit.position.x = 2;
+    moonOrbit.scale.set(0.5, 0.5, 0.5);
+    earthOrbit.add(moonOrbit);
+    objects.push(moonOrbit);
+
+    const moonMaterial = new THREE.MeshPhongMaterial({ color: 0x888888, emissive: 0x222222 });
+    const moonMesh = new THREE.Mesh(sphereGeometry, moonMaterial);
+    moonOrbit.add(moonMesh);
+    objects.push(moonMesh);
   }
 
   function resizeRendererToDisplaySize(renderer: THREE.WebGLRenderer): boolean {
