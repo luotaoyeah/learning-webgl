@@ -43,6 +43,28 @@ function main() {
     addSolidGeometry(0, 2, new THREE.ShapeGeometry(shape));
   }
 
+  {
+    const shape = new THREE.Shape();
+    shape.moveTo(-4, 4);
+    shape.lineTo(4, 4);
+    shape.lineTo(4, -4);
+    shape.lineTo(-4, -4);
+    shape.closePath();
+    addSolidGeometry(
+      1,
+      2,
+      new THREE.ExtrudeGeometry(shape, {
+        bevelEnabled: true,
+        bevelSize: 0.5,
+        bevelThickness: 0.5,
+        bevelOffset: 0,
+        bevelSegments: 10,
+        steps: 3,
+        depth: 3,
+      }),
+    );
+  }
+
   function addObject(x: number, y: number, obj: THREE.Object3D): void {
     obj.position.x = x * spread;
     obj.position.y = y * spread;
