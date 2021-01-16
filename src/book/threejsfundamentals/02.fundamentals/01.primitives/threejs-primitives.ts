@@ -100,6 +100,18 @@ function main() {
     });
   }
 
+  {
+    const boxGeometry = new THREE.BoxGeometry(6, 6, 6);
+    const edgesGeometry = new THREE.EdgesGeometry(boxGeometry);
+    addLineGeometry(0, 1, edgesGeometry);
+  }
+
+  {
+    const boxGeometry = new THREE.BoxGeometry(6, 6, 6);
+    const wireframeGeometry = new THREE.WireframeGeometry(boxGeometry);
+    addLineGeometry(1, 1, wireframeGeometry);
+  }
+
   function addObject(x: number, y: number, obj: THREE.Object3D): void {
     obj.position.x = x * spread;
     obj.position.y = y * spread;
@@ -116,6 +128,12 @@ function main() {
     group.add(new THREE.Mesh(geometry, materials[1]));
 
     addObject(x, y, group);
+  }
+
+  function addLineGeometry(x: number, y: number, geometry: THREE.BufferGeometry): void {
+    const lineBasicMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+    const lineSegments = new THREE.LineSegments(geometry, lineBasicMaterial);
+    addObject(x, y, lineSegments);
   }
 
   function createMaterial(): [THREE.Material, THREE.Material] {
