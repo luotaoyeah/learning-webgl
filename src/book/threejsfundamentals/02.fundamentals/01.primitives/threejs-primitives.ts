@@ -65,6 +65,41 @@ function main() {
     );
   }
 
+  {
+    new THREE.FontLoader().load('../../common/helvetiker.typeface.json', (font) => {
+      const textGeometry = new THREE.TextGeometry('HELLO', {
+        font,
+        size: 3,
+        height: 1,
+        curveSegments: 24,
+        bevelEnabled: true,
+        bevelSize: 0.1,
+        bevelThickness: 0.1,
+        bevelOffset: 0.1,
+        bevelSegments: 24,
+      });
+
+      addSolidGeometry(-2, 1, textGeometry);
+
+      {
+        const materials = createMaterial();
+
+        const group = new THREE.Group();
+        group.add(new THREE.Mesh(textGeometry, materials[0]));
+        group.add(new THREE.Mesh(textGeometry, materials[1]));
+
+        // TextGeometry 默认以左上角为原点进行旋转,
+        // 下面将原点定位到中心点
+        textGeometry.computeBoundingBox();
+        textGeometry.boundingBox?.getCenter(group.position)?.multiplyScalar(-1);
+        const object3D = new THREE.Object3D();
+        object3D.add(group);
+
+        addObject(-1, 1, object3D);
+      }
+    });
+  }
+
   function addObject(x: number, y: number, obj: THREE.Object3D): void {
     obj.position.x = x * spread;
     obj.position.y = y * spread;

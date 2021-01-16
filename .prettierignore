@@ -6,4 +6,7 @@ node_modules/
 /src/book/real-time-3d-graphics-with-webgl2/common/models/
 /src/book/real-time-3d-graphics-with-webgl2/common/lib/dat.gui.js
 /src/book/real-time-3d-graphics-with-webgl2/common/lib/gl-matrix.js
+
 /src/book/learn-threejs/common/libs/
+
+/src/book/threejsfundamentals/common/helvetiker.typeface.json

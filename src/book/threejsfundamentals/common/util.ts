@@ -1,11 +1,25 @@
 import '../../../../node_modules/three/build/three.js';
 import '../../../../node_modules/three/examples/js/controls/TrackballControls.js';
-import * as THREE_T from '../../../../node_modules/@types/three';
+import '../../../../node_modules/three/examples/js/loaders/FontLoader.js';
+import '../../../../node_modules/three/examples/js/geometries/TextGeometry.js';
 import Stats from '../../../../node_modules/stats.js/src/Stats.js';
+
+import * as THREE_T from '../../../../node_modules/@types/three';
 import type { TrackballControls as _TrackballControls } from '../../../../node_modules/@types/three/examples/jsm/controls/TrackballControls';
+import type {
+  Font as _Font,
+  FontLoader as _FontLoader,
+} from '../../../../node_modules/@types/three/examples/jsm/loaders/FontLoader';
+import type { TextGeometry as _TextGeometry } from '../../../../node_modules/@types/three/examples/jsm/geometries/TextGeometry';
 
 declare namespace THREE_ {
   export class TrackballControls extends _TrackballControls {}
+
+  export class FontLoader extends _FontLoader {}
+
+  export class Font extends _Font {}
+
+  export class TextGeometry extends _TextGeometry {}
 }
 
 // @ts-ignore
