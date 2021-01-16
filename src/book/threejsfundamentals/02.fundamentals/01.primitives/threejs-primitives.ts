@@ -112,6 +112,13 @@ function main() {
     addLineGeometry(1, 1, wireframeGeometry);
   }
 
+  {
+    const geometry = new THREE.SphereGeometry(6, 12, 12);
+    const material = new THREE.PointsMaterial({ color: 0x000000, size: 3, sizeAttenuation: false });
+    const points = new THREE.Points(geometry, material);
+    addObject(-2, 0, points);
+  }
+
   function addObject(x: number, y: number, obj: THREE.Object3D): void {
     obj.position.x = x * spread;
     obj.position.y = y * spread;
