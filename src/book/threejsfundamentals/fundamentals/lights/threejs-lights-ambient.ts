@@ -1,22 +1,25 @@
-import { dat, initOrbitControls, initStats, THREE } from '../../common/util.js';
+import { dat, initStats, initTrackballControls, THREE } from '../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
   const renderer = new THREE.WebGLRenderer({ canvas });
   const stats = initStats();
 
-  const camera = new THREE.PerspectiveCamera(45, 2, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(15, 2, 0.1, 1000);
   camera.position.set(0, 10, 50);
   camera.lookAt(0, 0, 0);
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x000000);
 
-  const orbitControls = initOrbitControls(camera, renderer);
+  const orbitControls = initTrackballControls(camera, renderer);
   orbitControls.target.set(0, 5, 0);
 
   const axesHelper = new THREE.AxesHelper(100);
   scene.add(axesHelper);
+
+  const cameraHelper = new THREE.CameraHelper(camera);
+  scene.add(cameraHelper);
 
   const gui = new dat.GUI();
 
@@ -87,6 +90,7 @@ function main() {
   function render(time: number): void {
     stats.update();
     orbitControls.update();
+    cameraHelper.update();
 
     if (resizeRendererToDisplaySize(renderer)) {
       camera.aspect = renderer.domElement.clientWidth / renderer.domElement.clientHeight;
