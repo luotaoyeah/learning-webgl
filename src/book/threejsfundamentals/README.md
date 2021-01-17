@@ -5,3 +5,4 @@
 - [02.fundamentals](02.fundamentals)
   - [01.primitives](02.fundamentals/01.primitives)
   - [02.scene-graph](02.fundamentals/02.scene-graph)
+  - [04.textures](02.fundamentals/04.textures)
