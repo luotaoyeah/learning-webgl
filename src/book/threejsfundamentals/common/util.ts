@@ -3,6 +3,7 @@ import '../../../../node_modules/three/examples/js/controls/TrackballControls.js
 import '../../../../node_modules/three/examples/js/loaders/FontLoader.js';
 import '../../../../node_modules/three/examples/js/geometries/TextGeometry.js';
 import Stats from '../../../../node_modules/stats.js/src/Stats.js';
+import * as _dat from '../../../../node_modules/dat.gui/build/dat.gui.module.js';
 
 import * as THREE_T from '../../../../node_modules/@types/three';
 import type { TrackballControls as _TrackballControls } from '../../../../node_modules/@types/three/examples/jsm/controls/TrackballControls';
@@ -11,6 +12,7 @@ import type {
   FontLoader as _FontLoader,
 } from '../../../../node_modules/@types/three/examples/jsm/loaders/FontLoader';
 import type { TextGeometry as _TextGeometry } from '../../../../node_modules/@types/three/examples/jsm/geometries/TextGeometry';
+import type { GUI } from '../../../../node_modules/@types/dat.gui';
 
 declare namespace THREE_ {
   export class TrackballControls extends _TrackballControls {}
@@ -22,8 +24,8 @@ declare namespace THREE_ {
   export class TextGeometry extends _TextGeometry {}
 }
 
-// @ts-ignore
-const THREE = window.THREE as typeof THREE_T & typeof THREE_;
+const THREE = (window as any).THREE as typeof THREE_T & typeof THREE_;
+const dat = { GUI: _dat.GUI as typeof GUI };
 
 /**
  * 加载 stats.js.
@@ -59,4 +61,4 @@ function initTrackballControls(camera: THREE.Camera, renderer: THREE.WebGLRender
   return trackballControls;
 }
 
-export { THREE, initStats, initTrackballControls };
+export { THREE, initStats, initTrackballControls, dat };
