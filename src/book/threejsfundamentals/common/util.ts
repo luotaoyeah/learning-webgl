@@ -1,5 +1,6 @@
 import '../../../../node_modules/three/build/three.js';
 import '../../../../node_modules/three/examples/js/controls/TrackballControls.js';
+import '../../../../node_modules/three/examples/js/controls/OrbitControls.js';
 import '../../../../node_modules/three/examples/js/loaders/FontLoader.js';
 import '../../../../node_modules/three/examples/js/geometries/TextGeometry.js';
 import Stats from '../../../../node_modules/stats.js/src/Stats.js';
@@ -7,6 +8,7 @@ import * as _dat from '../../../../node_modules/dat.gui/build/dat.gui.module.js'
 
 import * as THREE_T from '../../../../node_modules/@types/three';
 import type { TrackballControls as _TrackballControls } from '../../../../node_modules/@types/three/examples/jsm/controls/TrackballControls';
+import type { OrbitControls as _OrbitControls } from '../../../../node_modules/@types/three/examples/jsm/controls/OrbitControls';
 import type {
   Font as _Font,
   FontLoader as _FontLoader,
@@ -16,6 +18,8 @@ import type { GUI } from '../../../../node_modules/@types/dat.gui';
 
 declare namespace THREE_ {
   export class TrackballControls extends _TrackballControls {}
+
+  export class OrbitControls extends _OrbitControls {}
 
   export class FontLoader extends _FontLoader {}
 
@@ -61,4 +65,16 @@ function initTrackballControls(camera: THREE.Camera, renderer: THREE.WebGLRender
   return trackballControls;
 }
 
-export { THREE, initStats, initTrackballControls, dat };
+/**
+ * 加载 OrbitControls.
+ *
+ * @param camera
+ * @param renderer
+ */
+function initOrbitControls(camera: THREE.Camera, renderer: THREE.WebGLRenderer) {
+  const orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+
+  return orbitControls;
+}
+
+export { THREE, initStats, initTrackballControls, initOrbitControls, dat };
