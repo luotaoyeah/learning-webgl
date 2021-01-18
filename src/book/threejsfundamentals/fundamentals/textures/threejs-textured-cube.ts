@@ -17,7 +17,7 @@ function main() {
 
   {
     const geometry = new THREE.BoxGeometry(16, 16, 16);
-    const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('../../common/wall.jpg') });
+    const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('../../common/assets/wall.jpg') });
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
     objects.push(mesh);

@@ -8,3 +8,4 @@
   - [scene-graph](fundamentals/scene-graph)
   - [textures](fundamentals/textures)
   - [lights](fundamentals/lights)
+  - [render-targets](fundamentals/render-targets)

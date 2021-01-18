@@ -25,7 +25,7 @@ function main() {
 
   {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('../../common/checker.png');
+    const texture = textureLoader.load('../../common/assets/checker.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
