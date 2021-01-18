@@ -4,6 +4,7 @@ import '../../../../node_modules/three/examples/js/controls/OrbitControls.js';
 import '../../../../node_modules/three/examples/js/loaders/FontLoader.js';
 import '../../../../node_modules/three/examples/js/loaders/OBJLoader.js';
 import '../../../../node_modules/three/examples/js/loaders/MTLLoader.js';
+import '../../../../node_modules/three/examples/js/loaders/GLTFLoader.js';
 import '../../../../node_modules/three/examples/js/geometries/TextGeometry.js';
 import Stats from '../../../../node_modules/stats.js/src/Stats.js';
 import * as _dat from '../../../../node_modules/dat.gui/build/dat.gui.module.js';
@@ -13,6 +14,7 @@ import type { TrackballControls as _TrackballControls } from '../../../../node_m
 import type { OrbitControls as _OrbitControls } from '../../../../node_modules/@types/three/examples/jsm/controls/OrbitControls';
 import type { OBJLoader as _OBJLoader } from '../../../../node_modules/@types/three/examples/jsm/loaders/OBJLoader';
 import type { MTLLoader as _MTLLoader } from '../../../../node_modules/@types/three/examples/jsm/loaders/MTLLoader';
+import type { GLTFLoader as _GLTFLoader } from '../../../../node_modules/@types/three/examples/jsm/loaders/GLTFLoader';
 import type {
   Font as _Font,
   FontLoader as _FontLoader,
@@ -30,6 +32,8 @@ declare namespace THREE_ {
   export class OBJLoader extends _OBJLoader {}
 
   export class MTLLoader extends _MTLLoader {}
+
+  export class GLTFLoader extends _GLTFLoader {}
 
   export class Font extends _Font {}
 

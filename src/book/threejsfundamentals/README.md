@@ -10,3 +10,5 @@
   - [lights](fundamentals/lights)
   - [render-targets](fundamentals/render-targets)
 - [solutions](solutions)
+  - [load-an-obj-file](solutions/load-an-obj-file)
+  - [load-a-gltf-file](solutions/load-a-gltf-file)
