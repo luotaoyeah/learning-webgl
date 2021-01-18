@@ -9,3 +9,4 @@
   - [textures](fundamentals/textures)
   - [lights](fundamentals/lights)
   - [render-targets](fundamentals/render-targets)
+- [solutions](solutions)

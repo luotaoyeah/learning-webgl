@@ -2,6 +2,7 @@ import '../../../../node_modules/three/build/three.js';
 import '../../../../node_modules/three/examples/js/controls/TrackballControls.js';
 import '../../../../node_modules/three/examples/js/controls/OrbitControls.js';
 import '../../../../node_modules/three/examples/js/loaders/FontLoader.js';
+import '../../../../node_modules/three/examples/js/loaders/OBJLoader.js';
 import '../../../../node_modules/three/examples/js/geometries/TextGeometry.js';
 import Stats from '../../../../node_modules/stats.js/src/Stats.js';
 import * as _dat from '../../../../node_modules/dat.gui/build/dat.gui.module.js';
@@ -9,6 +10,7 @@ import * as _dat from '../../../../node_modules/dat.gui/build/dat.gui.module.js'
 import * as THREE_T from '../../../../node_modules/@types/three';
 import type { TrackballControls as _TrackballControls } from '../../../../node_modules/@types/three/examples/jsm/controls/TrackballControls';
 import type { OrbitControls as _OrbitControls } from '../../../../node_modules/@types/three/examples/jsm/controls/OrbitControls';
+import type { OBJLoader as _OBJLoader } from '../../../../node_modules/@types/three/examples/jsm/loaders/OBJLoader';
 import type {
   Font as _Font,
   FontLoader as _FontLoader,
@@ -22,6 +24,8 @@ declare namespace THREE_ {
   export class OrbitControls extends _OrbitControls {}
 
   export class FontLoader extends _FontLoader {}
+
+  export class OBJLoader extends _OBJLoader {}
 
   export class Font extends _Font {}
 
