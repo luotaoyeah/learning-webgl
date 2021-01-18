@@ -46,6 +46,7 @@ function main() {
 
   {
     const mtlLoader = new THREE.MTLLoader();
+    mtlLoader.setMaterialOptions({ side: THREE.DoubleSide });
     mtlLoader.load('../../common/assets/windmill.mtl', (mtl) => {
       mtl.preload();
 
