@@ -47,12 +47,12 @@ function main() {
   {
     const mtlLoader = new THREE.MTLLoader();
     mtlLoader.setMaterialOptions({ side: THREE.DoubleSide });
-    mtlLoader.load('../../common/assets/windmill.mtl', (mtl) => {
+    mtlLoader.load('../../common/assets/windmill/windmill.mtl', (mtl) => {
       mtl.preload();
 
       const objLoader = new THREE.OBJLoader();
       objLoader.setMaterials(mtl);
-      objLoader.load('../../common/assets/windmill.obj', (obj) => {
+      objLoader.load('../../common/assets/windmill/windmill.obj', (obj) => {
         scene.add(obj);
       });
     });
