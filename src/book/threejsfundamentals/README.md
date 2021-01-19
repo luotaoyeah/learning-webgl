@@ -12,3 +12,4 @@
 - [solutions](solutions)
   - [load-an-obj-file](solutions/load-an-obj-file)
   - [load-a-gltf-file](solutions/load-a-gltf-file)
+  - [add-a-background-or-skybox](solutions/add-a-background-or-skybox)

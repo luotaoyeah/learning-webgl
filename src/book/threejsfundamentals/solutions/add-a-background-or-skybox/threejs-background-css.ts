@@ -2,7 +2,7 @@ import { initStats, THREE } from '../../common/util.js';
 
 function main() {
   const canvas = document.querySelector<HTMLCanvasElement>('#c');
-  const renderer = new THREE.WebGLRenderer({ canvas });
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 
   const stats = initStats();
 
@@ -14,22 +14,6 @@ function main() {
   controls.update();
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('black');
-
-  {
-    const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('../../common/assets/checker.png');
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.magFilter = THREE.NearestFilter;
-    texture.repeat.set(20, 20);
-
-    const planeGeometry = new THREE.PlaneGeometry(40, 40);
-    const meshPhongMaterial = new THREE.MeshPhongMaterial({ map: texture, side: THREE.DoubleSide });
-    const mesh = new THREE.Mesh(planeGeometry, meshPhongMaterial);
-    mesh.rotation.x = -90 * (Math.PI / 180);
-    scene.add(mesh);
-  }
 
   {
     const light = new THREE.HemisphereLight('#b1e1ff', '#b97a20', 1);
