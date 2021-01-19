@@ -30,12 +30,12 @@ function main() {
 
   const textureLoader = new THREE.CubeTextureLoader();
   const bgTexture = textureLoader.load([
-    '../../common/assets/computer-history-museum/pos-x.jpg',
-    '../../common/assets/computer-history-museum/neg-x.jpg',
-    '../../common/assets/computer-history-museum/pos-y.jpg',
-    '../../common/assets/computer-history-museum/neg-y.jpg',
-    '../../common/assets/computer-history-museum/pos-z.jpg',
-    '../../common/assets/computer-history-museum/neg-z.jpg',
+    '../../common/assets/hdri/pos-x.png',
+    '../../common/assets/hdri/neg-x.png',
+    '../../common/assets/hdri/pos-y.png',
+    '../../common/assets/hdri/neg-y.png',
+    '../../common/assets/hdri/pos-z.png',
+    '../../common/assets/hdri/neg-z.png',
   ]);
   scene.background = bgTexture;
 
