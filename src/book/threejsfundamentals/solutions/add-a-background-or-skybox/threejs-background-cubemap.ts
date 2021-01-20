@@ -1,4 +1,4 @@
-import { initStats, THREE } from '../../common/util.js';
+import { initStats, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.querySelector<HTMLCanvasElement>('#c');
@@ -30,18 +30,18 @@ function main() {
 
   const textureLoader = new THREE.CubeTextureLoader();
   const bgTexture = textureLoader.load([
-    '../../common/assets/hdri/pos-x.png',
-    '../../common/assets/hdri/neg-x.png',
-    '../../common/assets/hdri/pos-y.png',
-    '../../common/assets/hdri/neg-y.png',
-    '../../common/assets/hdri/pos-z.png',
-    '../../common/assets/hdri/neg-z.png',
+    '../../assets/hdri/pos-x.png',
+    '../../assets/hdri/neg-x.png',
+    '../../assets/hdri/pos-y.png',
+    '../../assets/hdri/neg-y.png',
+    '../../assets/hdri/pos-z.png',
+    '../../assets/hdri/neg-z.png',
   ]);
   scene.background = bgTexture;
 
   {
     const gltfLoader = new THREE.GLTFLoader();
-    gltfLoader.load('../../common/assets/cartoon_lowpoly_small_city_free_pack/scene.gltf', (gltf) => {
+    gltfLoader.load('../../assets/cartoon_lowpoly_small_city_free_pack/scene.gltf', (gltf) => {
       scene.add(gltf.scene);
 
       const box = new THREE.Box3().setFromObject(gltf.scene);

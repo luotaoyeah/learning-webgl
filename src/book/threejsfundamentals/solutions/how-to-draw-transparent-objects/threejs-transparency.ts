@@ -1,4 +1,4 @@
-import { initStats, THREE } from '../../common/util.js';
+import { initStats, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.querySelector<HTMLCanvasElement>('#c');

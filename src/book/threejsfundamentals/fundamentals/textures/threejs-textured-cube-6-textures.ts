@@ -1,4 +1,4 @@
-import { initStats, initTrackballControls, THREE } from '../../common/util.js';
+import { initStats, initTrackballControls, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
@@ -20,12 +20,12 @@ function main() {
 
     const geometry = new THREE.BoxGeometry(16, 16, 16);
     const material = [
-      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../common/assets/flower-1.jpg') }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../common/assets/flower-2.jpg') }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../common/assets/flower-3.jpg') }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../common/assets/flower-4.jpg') }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../common/assets/flower-5.jpg') }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../common/assets/flower-6.jpg') }),
+      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../assets/flower-1.jpg') }),
+      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../assets/flower-2.jpg') }),
+      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../assets/flower-3.jpg') }),
+      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../assets/flower-4.jpg') }),
+      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../assets/flower-5.jpg') }),
+      new THREE.MeshBasicMaterial({ map: textureLoader.load('../../assets/flower-6.jpg') }),
     ];
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);

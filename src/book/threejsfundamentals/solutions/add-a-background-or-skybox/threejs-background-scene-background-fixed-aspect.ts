@@ -1,4 +1,4 @@
-import { initStats, THREE } from '../../common/util.js';
+import { initStats, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.querySelector<HTMLCanvasElement>('#c');
@@ -29,12 +29,12 @@ function main() {
   }
 
   const textureLoader = new THREE.TextureLoader();
-  const bgTexture = textureLoader.load('../../common/assets/daikanyama.jpg');
+  const bgTexture = textureLoader.load('../../assets/daikanyama.jpg');
   scene.background = bgTexture;
 
   {
     const gltfLoader = new THREE.GLTFLoader();
-    gltfLoader.load('../../common/assets/cartoon_lowpoly_small_city_free_pack/scene.gltf', (gltf) => {
+    gltfLoader.load('../../assets/cartoon_lowpoly_small_city_free_pack/scene.gltf', (gltf) => {
       scene.add(gltf.scene);
 
       const box = new THREE.Box3().setFromObject(gltf.scene);

@@ -1,4 +1,4 @@
-import { initStats, initTrackballControls, THREE } from '../../common/util.js';
+import { initStats, initTrackballControls, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
@@ -66,7 +66,7 @@ function main() {
   }
 
   {
-    new THREE.FontLoader().load('../../common/assets/font/helvetiker.typeface.json', (font) => {
+    new THREE.FontLoader().load('../../assets/font/helvetiker.typeface.json', (font) => {
       const textGeometry = new THREE.TextGeometry('HELLO', {
         font,
         size: 3,

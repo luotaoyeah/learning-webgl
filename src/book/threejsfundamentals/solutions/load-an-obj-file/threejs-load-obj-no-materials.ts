@@ -1,4 +1,4 @@
-import { initStats, THREE } from '../../common/util.js';
+import { initStats, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.querySelector<HTMLCanvasElement>('#c');
@@ -18,7 +18,7 @@ function main() {
 
   {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('../../common/assets/checker.png');
+    const texture = textureLoader.load('../../assets/checker.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;
@@ -47,12 +47,12 @@ function main() {
   {
     const mtlLoader = new THREE.MTLLoader();
     mtlLoader.setMaterialOptions({ side: THREE.DoubleSide });
-    mtlLoader.load('../../common/assets/windmill/windmill.mtl', (mtl) => {
+    mtlLoader.load('../../assets/windmill/windmill.mtl', (mtl) => {
       mtl.preload();
 
       const objLoader = new THREE.OBJLoader();
       objLoader.setMaterials(mtl);
-      objLoader.load('../../common/assets/windmill/windmill.obj', (obj) => {
+      objLoader.load('../../assets/windmill/windmill.obj', (obj) => {
         scene.add(obj);
       });
     });

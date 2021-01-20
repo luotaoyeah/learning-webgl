@@ -1,4 +1,4 @@
-import { initStats, initTrackballControls, THREE } from '../../common/util.js';
+import { initStats, initTrackballControls, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');

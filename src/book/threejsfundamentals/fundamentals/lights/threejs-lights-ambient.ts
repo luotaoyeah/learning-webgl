@@ -1,4 +1,4 @@
-import { dat, initStats, initTrackballControls, THREE } from '../../common/util.js';
+import { dat, initStats, initTrackballControls, THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
@@ -25,7 +25,7 @@ function main() {
 
   {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('../../common/assets/checker.png');
+    const texture = textureLoader.load('../../assets/checker.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.magFilter = THREE.NearestFilter;

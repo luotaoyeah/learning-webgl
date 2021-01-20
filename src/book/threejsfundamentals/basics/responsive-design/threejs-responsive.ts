@@ -1,4 +1,4 @@
-import { THREE } from '../../common/util.js';
+import { THREE } from '../../../../common/util.js';
 
 function main() {
   const canvas = document.getElementById('c');
