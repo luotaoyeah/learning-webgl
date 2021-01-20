@@ -1,4 +1,5 @@
-// @ts-ignore
+import { dat, initStats, initTrackballControls, THREE } from '../../../../common/util.js';
+
 function init() {
   var stats = initStats();
 
@@ -22,7 +23,7 @@ function init() {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -(90 * Math.PI / 180);
+  plane.rotation.x = -((90 * Math.PI) / 180);
   plane.position.x = 15;
   plane.position.y = 0;
   plane.position.z = 0;
@@ -114,6 +115,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();

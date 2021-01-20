@@ -1,4 +1,5 @@
-// @ts-ignore
+import { THREE } from '../../../../common/util.js';
+
 function init() {
   // create a scene, that will hold all our elements such as objects, cameras and lights.
   const scene = new THREE.Scene();
@@ -68,6 +69,4 @@ function init() {
   renderer.render(scene, camera);
 }
 
-(function () {
-  init();
-})();
+init();

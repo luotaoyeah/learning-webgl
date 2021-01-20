@@ -1,4 +1,5 @@
-// @ts-ignore
+import { THREE } from '../../../../common/util.js';
+
 function init() {
   // create a scene, that will hold all our elements such as objects, cameras and lights.
   var scene = new THREE.Scene();
@@ -45,7 +46,7 @@ function init() {
   var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
   // rotate and position the plane
-  plane.rotation.x = -(90 * Math.PI / 180);
+  plane.rotation.x = -((90 * Math.PI) / 180);
   plane.position.set(15, 0, 0);
   plane.receiveShadow = true;
 
@@ -124,7 +125,7 @@ function createGroundPlane(scene) {
   plane.receiveShadow = true;
 
   // rotate and position the plane
-  plane.rotation.x = -(90 * Math.PI / 180);
+  plane.rotation.x = -((90 * Math.PI) / 180);
   plane.position.x = 15;
   plane.position.y = 0;
   plane.position.z = 0;
@@ -197,6 +198,4 @@ function createTree(scene) {
   scene.add(leavesMesh);
 }
 
-(function () {
-  init();
-})();
+init();
