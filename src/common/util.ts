@@ -6,6 +6,8 @@ import '../../node_modules/three/examples/js/loaders/OBJLoader.js';
 import '../../node_modules/three/examples/js/loaders/MTLLoader.js';
 import '../../node_modules/three/examples/js/loaders/GLTFLoader.js';
 import '../../node_modules/three/examples/js/loaders/DRACOLoader.js';
+import '../../node_modules/three/examples/js/loaders/KTX2Loader.js';
+import '../../node_modules/three/examples/js/utils/WorkerPool.js';
 import '../../node_modules/three/examples/js/geometries/TextGeometry.js';
 import Stats from '../../node_modules/stats.js/src/Stats.js';
 import * as _dat from '../../node_modules/dat.gui/build/dat.gui.module.js';
@@ -17,6 +19,7 @@ import type { OBJLoader as _OBJLoader } from '../../node_modules/@types/three/ex
 import type { MTLLoader as _MTLLoader } from '../../node_modules/@types/three/examples/jsm/loaders/MTLLoader';
 import type { GLTFLoader as _GLTFLoader } from '../../node_modules/@types/three/examples/jsm/loaders/GLTFLoader';
 import type { DRACOLoader as _DRACOLoader } from '../../node_modules/@types/three/examples/jsm/loaders/DRACOLoader';
+import type { KTX2Loader as _KTX2Loader } from '../../node_modules/@types/three/examples/jsm/loaders/KTX2Loader';
 import type {
   Font as _Font,
   FontLoader as _FontLoader,
@@ -38,6 +41,8 @@ declare namespace THREE_ {
   export class GLTFLoader extends _GLTFLoader {}
 
   export class DRACOLoader extends _DRACOLoader {}
+
+  export class KTX2Loader extends _KTX2Loader {}
 
   export class Font extends _Font {}
 

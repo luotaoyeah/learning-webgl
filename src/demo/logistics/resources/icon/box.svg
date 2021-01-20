@@ -1,0 +1,15 @@
+<svg width="430" height="290" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <title>background</title>
+        <rect fill="#e1e1e3" id="canvas_background" height="290" width="430" />
+    </g>
+    <g>
+        <title>Layer 1</title>
+        <rect opacity="0.4" id="svg_2" height="59" width="430" y="0" x="0" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#7caf8b"/>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_3" y="36" x="20" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">货物信息</text>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_4" y="108" x="30" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">批次号：2143871335</text>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_5" y="152" x="30" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">入库时间：2021-10-23 21:45</text>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_6" y="196" x="30" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">货物类别：干货</text>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_7" y="240" x="30" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">质检情况：无不良</text>
+    </g>
+</svg>
