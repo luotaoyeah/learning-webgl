@@ -1,8 +1,7 @@
-// @ts-ignore
+import { THREE } from '../../../../common/util.js';
+
 function init() {
-  console.log('Using Three.js version: ' + THREE.REVISION);
+  console.log(`three@${THREE.REVISION}`);
 }
 
-(function () {
-  init();
-})();
+init();
