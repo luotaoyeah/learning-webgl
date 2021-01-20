@@ -1,4 +1,4 @@
-// @ts-ignore
+import { dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
 
 function init() {
   var stats = initStats();
@@ -85,8 +85,8 @@ function init() {
   var material = new THREE.MeshLambertMaterial({ color: 0x44ff44 });
 
   var materials = [
-    new THREE.MeshLambertMaterial({opacity: 0.8, color: 0x44ff44, transparent: true}),
-    new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true})
+    new THREE.MeshLambertMaterial({ opacity: 0.8, color: 0x44ff44, transparent: true }),
+    new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true }),
   ];
 
   var cube = THREE.SceneUtils.createMultiMaterialObject(geom, materials);
@@ -157,6 +157,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();

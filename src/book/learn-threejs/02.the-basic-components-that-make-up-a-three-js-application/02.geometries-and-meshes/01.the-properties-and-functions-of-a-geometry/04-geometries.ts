@@ -1,4 +1,4 @@
-// @ts-ignore
+import { initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
 
 function init() {
   var stats = initStats();
@@ -168,6 +168,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();
