@@ -1,5 +1,9 @@
 import { initStats, initTrackballControls, THREE } from '../../../../common/util.js';
 
+/**
+ * ttf 转换为 facetype.json:
+ *   https://gero3.github.io/facetype.js/
+ */
 function main() {
   const canvas = document.getElementById('c');
   const renderer = new THREE.WebGLRenderer({ canvas });
@@ -66,8 +70,8 @@ function main() {
   }
 
   {
-    new THREE.FontLoader().load('../../assets/font/helvetiker.typeface.json', (font) => {
-      const textGeometry = new THREE.TextGeometry('HELLO', {
+    new THREE.FontLoader().load('../../assets/font/monaco.typeface.json', (font) => {
+      const textGeometry = new THREE.TextGeometry('THREE', {
         font,
         size: 3,
         height: 1,

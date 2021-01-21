@@ -1,4 +1,4 @@
-![](cover.png)
+![](common/images/cover.png)
 
 - [01.getting-started](01.getting-started)
   - [05.time-for-action-accessing-the-webgl-context](01.getting-started/05.time-for-action-accessing-the-webgl-context)
