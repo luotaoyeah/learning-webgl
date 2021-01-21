@@ -226,13 +226,3 @@ function addSpecificMaterialSettings(gui, controls, material, name) {
       return folder;
   }
 }
-
-function setMaterialGroup(material, group) {
-  if (group instanceof THREE.Mesh) {
-    group.material = material;
-  } else if (group instanceof THREE.Group) {
-    group.children.forEach(function (child) {
-      setMaterialGroup(material, child);
-    });
-  }
-}
