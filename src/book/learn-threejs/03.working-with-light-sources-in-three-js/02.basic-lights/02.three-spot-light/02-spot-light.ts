@@ -1,4 +1,5 @@
-// @ts-ignore
+import { dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
+
 function init() {
   // use the defaults
   var stats = initStats();
@@ -9,7 +10,6 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.shadowMap.enabled = true;
   document.getElementById('webgl-output').appendChild(renderer.domElement);
-
 
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.copy(new THREE.Vector3(-30, 40, 30));
@@ -64,7 +64,6 @@ function init() {
   plane.position.z = 0;
 
   scene.add(plane);
-
 
   // add subtle ambient lighting
   var ambiColor = '#1c1c1c';
@@ -231,6 +230,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();

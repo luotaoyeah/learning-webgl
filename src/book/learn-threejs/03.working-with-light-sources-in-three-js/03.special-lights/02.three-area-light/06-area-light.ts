@@ -1,4 +1,5 @@
-// @ts-ignore
+import { dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
+
 function init() {
   var stats = initStats();
   var renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -12,7 +13,6 @@ function init() {
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.copy(new THREE.Vector3(-30, 40, 30));
   camera.lookAt(new THREE.Vector3(0, 0, 0));
-
 
   camera.position.set(50, 30, -30);
   camera.lookAt(new THREE.Vector3(0, 0, -35));
@@ -104,6 +104,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();

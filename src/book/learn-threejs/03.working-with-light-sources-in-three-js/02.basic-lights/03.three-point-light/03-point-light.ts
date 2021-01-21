@@ -1,4 +1,5 @@
-// @ts-ignore
+import { addHouseAndTree, dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
+
 function init() {
   // use the defaults
   var stats = initStats();
@@ -115,6 +116,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();

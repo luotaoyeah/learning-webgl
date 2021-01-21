@@ -1,4 +1,5 @@
-// @ts-ignore
+import { addBasicMaterialSettings, dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
+
 function init() {
   // use the defaults
   var stats = initStats();
@@ -9,7 +10,6 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.shadowMap.enabled = true;
   document.getElementById('webgl-output').appendChild(renderer.domElement);
-
 
   // create a scene, that will hold all our elements such as objects, cameras and lights.
   var scene = new THREE.Scene();

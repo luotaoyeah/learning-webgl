@@ -1,4 +1,5 @@
-// @ts-ignore
+import { addBasicMaterialSettings, dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
+
 function init() {
   var stats = initStats();
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);

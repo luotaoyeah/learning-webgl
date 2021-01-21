@@ -1,4 +1,5 @@
-// @ts-ignore
+import { dat, initStats, initTrackballControls, THREE } from '../../../../../common/util.js';
+
 function init() {
   var stats = initStats();
   var renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -166,6 +167,4 @@ function init() {
   }
 }
 
-(function () {
-  init();
-})();
+init();
