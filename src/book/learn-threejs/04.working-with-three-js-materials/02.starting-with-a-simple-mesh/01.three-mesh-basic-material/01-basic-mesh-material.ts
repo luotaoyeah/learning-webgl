@@ -1,7 +1,10 @@
 // @ts-ignore
 function init() {
   var stats = initStats();
-  var camera = initCamera();
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.copy(new THREE.Vector3(-30, 40, 30));
+  camera.lookAt(new THREE.Vector3(0, 0, 0));
+
   var scene = new THREE.Scene();
   var renderer = new THREE.WebGLRenderer();
   renderer.setClearColor(new THREE.Color(0x000000));

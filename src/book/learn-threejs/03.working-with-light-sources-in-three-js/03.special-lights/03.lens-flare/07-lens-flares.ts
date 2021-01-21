@@ -9,7 +9,7 @@ function init() {
   renderer.shadowMap.enabled = true;
   document.getElementById('webgl-output').appendChild(renderer.domElement);
 
-  var camera = initCamera();
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.x = -20;
   camera.position.y = 10;
   camera.position.z = 45;

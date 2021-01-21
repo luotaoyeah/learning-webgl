@@ -11,14 +11,60 @@ function init() {
   document.getElementById('webgl-output').appendChild(renderer.domElement);
 
 
-  var camera = initCamera();
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.copy(new THREE.Vector3(-30, 40, 30));
+  camera.lookAt(new THREE.Vector3(0, 0, 0));
+
   var trackballControls = initTrackballControls(camera, renderer);
 
   // create a scene, that will hold all our elements such as objects, cameras and lights.
   var scene = new THREE.Scene();
 
-  var { cube, sphere } = addDefaultCubeAndSphere(scene);
-  var plane = addGroundPlane(scene);
+  var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
+  var cubeMaterial = new THREE.MeshLambertMaterial({
+    color: 0xff0000,
+  });
+  var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  cube.castShadow = true;
+
+  // position the cube
+  cube.position.x = -4;
+  cube.position.y = 3;
+  cube.position.z = 0;
+
+  // add the cube to the scene
+  scene.add(cube);
+
+  var sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
+  var sphereMaterial = new THREE.MeshLambertMaterial({
+    color: 0x7777ff,
+  });
+  var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+  // position the sphere
+  sphere.position.x = 20;
+  sphere.position.y = 0;
+  sphere.position.z = 2;
+  sphere.castShadow = true;
+
+  // add the sphere to the scene
+  scene.add(sphere);
+  // create the ground plane
+  var planeGeometry = new THREE.PlaneGeometry(60, 20, 120, 120);
+  var planeMaterial = new THREE.MeshPhongMaterial({
+    color: 0xffffff,
+  });
+  var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+  plane.receiveShadow = true;
+
+  // rotate and position the plane
+  plane.rotation.x = -((90 * Math.PI) / 180);
+  plane.position.x = 15;
+  plane.position.y = 0;
+  plane.position.z = 0;
+
+  scene.add(plane);
+
 
   // add subtle ambient lighting
   var ambiColor = '#1c1c1c';

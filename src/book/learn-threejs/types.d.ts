@@ -35,17 +35,9 @@ declare global {
 
   export function initStats(type?: string | number): Stats;
 
-  export function initCamera(position?: three.Vector3): three.PerspectiveCamera;
-
   export function addHouseAndTree(scene: three.Scene): void;
 
-  export function addDefaultCubeAndSphere(scene: three.Scene): { cube: three.Mesh; sphere: three.Mesh };
-
-  export function addGroundPlane(scene: three.Scene): three.Mesh;
-
   export function initTrackballControls(camera: three.Camera, renderer: three.WebGLRenderer): TrackballControls;
-
-  export function loadGopher(material: three.Material): Promise<any>;
 
   export function addBasicMaterialSettings(gui: dat.GUI, controls: object, material: three.Material, name?: string): dat.GUI;
 }
