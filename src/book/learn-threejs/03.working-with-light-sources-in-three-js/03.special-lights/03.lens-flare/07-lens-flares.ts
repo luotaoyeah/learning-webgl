@@ -1,9 +1,13 @@
 // @ts-ignore
 function init() {
   var stats = initStats();
-  var renderer = initRenderer({
-    alpha: true,
-  });
+  var renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(new THREE.Color(0x000000));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  document.getElementById('webgl-output').appendChild(renderer.domElement);
 
   var camera = initCamera();
   camera.position.x = -20;

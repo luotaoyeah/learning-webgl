@@ -1,7 +1,14 @@
 // @ts-ignore
 function init() {
   var stats = initStats();
-  var renderer = initRenderer();
+  var renderer = new THREE.WebGLRenderer();
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setClearColor(new THREE.Color(0x000000));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  document.getElementById('webgl-output').appendChild(renderer.domElement);
+
   var camera = initCamera();
   camera.position.set(-80, 80, 80);
   var trackballControls = initTrackballControls(camera, renderer);

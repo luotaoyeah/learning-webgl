@@ -1,6 +1,5 @@
 import * as three from 'three';
 import * as dat from 'dat.gui';
-import { WebGLRendererParameters } from 'three/src/renderers/WebGLRenderer';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 import { ConvexGeometry as OriginalConvexGeometry } from 'three/examples/jsm/geometries/ConvexGeometry';
 import { ParametricGeometry as OriginalParametricGeometry } from 'three/examples/jsm/geometries/ParametricGeometry';
@@ -35,8 +34,6 @@ declare global {
   }
 
   export function initStats(type?: string | number): Stats;
-
-  export function initRenderer(parameters?: WebGLRendererParameters): three.WebGLRenderer;
 
   export function initCamera(position?: three.Vector3): three.PerspectiveCamera;
 
