@@ -14,3 +14,5 @@
   - [load-a-gltf-file](solutions/load-a-gltf-file)
   - [add-a-background-or-skybox](solutions/add-a-background-or-skybox)
   - [how-to-draw-transparent-objects](solutions/how-to-draw-transparent-objects)
+- [tips](tips)
+  - [rendering-on-demand](tips/rendering-on-demand)
