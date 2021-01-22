@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>threejs-tips-tabindex</title>
+    <meta charset="UTF-8" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+        canvas 需要设置 tabindex, 才能响应键盘事件.
+    -->
+    <canvas id="c" tabindex="0"></canvas>
+
+    <script src="./threejs-tips-tabindex.js" type="module"></script>
+  </body>
+</html>

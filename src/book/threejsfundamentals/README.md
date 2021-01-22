@@ -17,3 +17,4 @@
 - [tips](tips)
   - [rendering-on-demand](tips/rendering-on-demand)
   - [taking-a-screenshot](tips/taking-a-screenshot)
+  - [get-keyboard-input-from-a-canvas](tips/get-keyboard-input-from-a-canvas)
