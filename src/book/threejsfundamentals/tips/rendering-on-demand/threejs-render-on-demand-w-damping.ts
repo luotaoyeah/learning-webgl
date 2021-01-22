@@ -5,13 +5,15 @@ function main() {
   const renderer = new THREE.WebGLRenderer({ canvas });
 
   const fov = 75;
-  const aspect = 2; 
+  const aspect = 2;
   const near = 0.1;
   const far = 100;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.z = 2;
 
   const controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.1;
   controls.target.set(0, 0, 0);
   controls.update();
 
@@ -57,6 +59,8 @@ function main() {
   }
 
   function render() {
+    controls.update();
+
     if (resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement;
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -64,12 +68,10 @@ function main() {
     }
 
     renderer.render(scene, camera);
+    requestAnimationFrame(render);
   }
 
-  render();
-
-  controls.addEventListener('change', render);
-  window.addEventListener('resize', render);
+  requestAnimationFrame(render);
 }
 
 main();
