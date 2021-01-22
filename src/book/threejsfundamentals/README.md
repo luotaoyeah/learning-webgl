@@ -16,3 +16,4 @@
   - [how-to-draw-transparent-objects](solutions/how-to-draw-transparent-objects)
 - [tips](tips)
   - [rendering-on-demand](tips/rendering-on-demand)
+  - [taking-a-screenshot](tips/taking-a-screenshot)
